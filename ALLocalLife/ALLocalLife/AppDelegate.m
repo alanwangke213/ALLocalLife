@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ALTabBarController.h"
+#import "ALGuideViewController.h"
+
+
 
 @interface AppDelegate ()
 
@@ -19,8 +22,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.window = [[UIWindow alloc] initWithFrame:kScreenBounds];
+    
+
+    
+    [self chooseRootViewController];
+    
+    
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+-(void)chooseRootViewController{
+    
+    BOOL isFirstTime = [[NSUserDefaults standardUserDefaults] boolForKey:kFirstLogin];
+    ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
+    
+    if (isFirstTime) {
+        self.window.rootViewController = tabBarVc;
+    }else{
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        
+        ALGuideViewController *guideView = [[ALGuideViewController alloc] initWithCollectionViewLayout:layout];
+        self.window.rootViewController = guideView;
+        
+        guideView.loginBlock = ^(BOOL login){
+            self.window.rootViewController = tabBarVc;
+        };
+        
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

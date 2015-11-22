@@ -9,8 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define kScreenBounds [UIScreen mainScreen].bounds
-#define kScreenWidth kScreenBounds.size.width
-#define kScreenHeight kScreenBounds.size.height
+#import "Constant.h"
+
+
+
 
 #endif /* PrefixHeader_pch */

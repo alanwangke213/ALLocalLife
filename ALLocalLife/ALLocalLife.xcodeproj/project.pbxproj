@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0374E11C00C14D00AF94C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0374E01C00C14D00AF94C8 /* Main.storyboard */; };
+		8C0374E91C00C58500AF94C8 /* ALOnLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0374E51C00C58500AF94C8 /* ALOnLiveViewController.m */; };
+		8C0375221C01E12B00AF94C8 /* ALGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0375211C01E12B00AF94C8 /* ALGuideViewController.m */; };
 		8C1F73F41C008A5C00F2D16C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F73F31C008A5C00F2D16C /* main.m */; };
 		8C1F73F71C008A5C00F2D16C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F73F61C008A5C00F2D16C /* AppDelegate.m */; };
 		8C1F73FF1C008A5C00F2D16C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F73FE1C008A5C00F2D16C /* Assets.xcassets */; };
 		8C1F74021C008A5C00F2D16C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F74001C008A5C00F2D16C /* LaunchScreen.storyboard */; };
 		8C1F740D1C008A5C00F2D16C /* ALLocalLifeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F740C1C008A5C00F2D16C /* ALLocalLifeUITests.m */; };
-		8C1F74451C008C7A00F2D16C /* ALTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74441C008C7A00F2D16C /* ALTabBarController.m */; };
+		8C1F744A1C008F8800F2D16C /* ALBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74491C008F8800F2D16C /* ALBasicViewController.m */; };
+		8C1F74561C00994700F2D16C /* ALTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74551C00994700F2D16C /* ALTabBarController.m */; };
+		8C1F74C21C009B7E00F2D16C /* ALAroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74941C009B7E00F2D16C /* ALAroundViewController.m */; };
+		8C1F74C31C009B7E00F2D16C /* ALCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F749B1C009B7E00F2D16C /* ALCircleViewController.m */; };
+		8C1F74C41C009B7E00F2D16C /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74A21C009B7E00F2D16C /* ALHomeViewController.m */; };
+		8C1F74C51C009B7E00F2D16C /* ALNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74A91C009B7E00F2D16C /* ALNewsViewController.m */; };
+		8C1F74C61C009B7E00F2D16C /* ALServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74B01C009B7E00F2D16C /* ALServicesViewController.m */; };
+		8C1F74C71C009B7E00F2D16C /* ALToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74B71C009B7E00F2D16C /* ALToolsViewController.m */; };
+		8C1F74C81C009B7E00F2D16C /* ALUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F74BE1C009B7E00F2D16C /* ALUsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C0374E01C00C14D00AF94C8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../Common/Main.storyboard; sourceTree = "<group>"; };
+		8C0374E41C00C58500AF94C8 /* ALOnLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOnLiveViewController.h; sourceTree = "<group>"; };
+		8C0374E51C00C58500AF94C8 /* ALOnLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOnLiveViewController.m; sourceTree = "<group>"; };
+		8C0375201C01E12B00AF94C8 /* ALGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALGuideViewController.h; sourceTree = "<group>"; };
+		8C0375211C01E12B00AF94C8 /* ALGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGuideViewController.m; sourceTree = "<group>"; };
 		8C1F73EF1C008A5C00F2D16C /* ALLocalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALLocalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1F73F31C008A5C00F2D16C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C1F73F51C008A5C00F2D16C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,9 +52,26 @@
 		8C1F74081C008A5C00F2D16C /* ALLocalLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALLocalLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1F740C1C008A5C00F2D16C /* ALLocalLifeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALLocalLifeUITests.m; sourceTree = "<group>"; };
 		8C1F740E1C008A5C00F2D16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C1F74431C008C7A00F2D16C /* ALTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTabBarController.h; sourceTree = "<group>"; };
-		8C1F74441C008C7A00F2D16C /* ALTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTabBarController.m; sourceTree = "<group>"; };
 		8C1F74461C008CAC00F2D16C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8C1F74471C008F3200F2D16C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		8C1F74481C008F8800F2D16C /* ALBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBasicViewController.h; sourceTree = "<group>"; };
+		8C1F74491C008F8800F2D16C /* ALBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALBasicViewController.m; sourceTree = "<group>"; };
+		8C1F74541C00994700F2D16C /* ALTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTabBarController.h; sourceTree = "<group>"; };
+		8C1F74551C00994700F2D16C /* ALTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTabBarController.m; sourceTree = "<group>"; };
+		8C1F74931C009B7E00F2D16C /* ALAroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAroundViewController.h; sourceTree = "<group>"; };
+		8C1F74941C009B7E00F2D16C /* ALAroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAroundViewController.m; sourceTree = "<group>"; };
+		8C1F749A1C009B7E00F2D16C /* ALCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCircleViewController.h; sourceTree = "<group>"; };
+		8C1F749B1C009B7E00F2D16C /* ALCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCircleViewController.m; sourceTree = "<group>"; };
+		8C1F74A11C009B7E00F2D16C /* ALHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHomeViewController.h; sourceTree = "<group>"; };
+		8C1F74A21C009B7E00F2D16C /* ALHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHomeViewController.m; sourceTree = "<group>"; };
+		8C1F74A81C009B7E00F2D16C /* ALNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewsViewController.h; sourceTree = "<group>"; };
+		8C1F74A91C009B7E00F2D16C /* ALNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewsViewController.m; sourceTree = "<group>"; };
+		8C1F74AF1C009B7E00F2D16C /* ALServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALServicesViewController.h; sourceTree = "<group>"; };
+		8C1F74B01C009B7E00F2D16C /* ALServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALServicesViewController.m; sourceTree = "<group>"; };
+		8C1F74B61C009B7E00F2D16C /* ALToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToolsViewController.h; sourceTree = "<group>"; };
+		8C1F74B71C009B7E00F2D16C /* ALToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToolsViewController.m; sourceTree = "<group>"; };
+		8C1F74BD1C009B7E00F2D16C /* ALUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUsViewController.h; sourceTree = "<group>"; };
+		8C1F74BE1C009B7E00F2D16C /* ALUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +92,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0374E21C00C58500AF94C8 /* OnLive */ = {
+			isa = PBXGroup;
+			children = (
+				8C0374E31C00C58500AF94C8 /* Controller */,
+				8C0374E61C00C58500AF94C8 /* Model */,
+				8C0374E71C00C58500AF94C8 /* Others */,
+				8C0374E81C00C58500AF94C8 /* View */,
+			);
+			path = OnLive;
+			sourceTree = "<group>";
+		};
+		8C0374E31C00C58500AF94C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C0374E41C00C58500AF94C8 /* ALOnLiveViewController.h */,
+				8C0374E51C00C58500AF94C8 /* ALOnLiveViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C0374E61C00C58500AF94C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C0374E71C00C58500AF94C8 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C0374E81C00C58500AF94C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C03751B1C01E0F900AF94C8 /* GuidView */ = {
+			isa = PBXGroup;
+			children = (
+				8C03751C1C01E0F900AF94C8 /* Controller */,
+				8C03751D1C01E0F900AF94C8 /* Model */,
+				8C03751E1C01E0F900AF94C8 /* Other */,
+				8C03751F1C01E0F900AF94C8 /* View */,
+			);
+			path = GuidView;
+			sourceTree = "<group>";
+		};
+		8C03751C1C01E0F900AF94C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C0375201C01E12B00AF94C8 /* ALGuideViewController.h */,
+				8C0375211C01E12B00AF94C8 /* ALGuideViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C03751D1C01E0F900AF94C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C03751E1C01E0F900AF94C8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8C03751F1C01E0F900AF94C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8C1F73E61C008A5B00F2D16C = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +197,7 @@
 			children = (
 				8C1F74171C008BBD00F2D16C /* Common */,
 				8C1F74181C008BBD00F2D16C /* Lib */,
-				8C1F74191C008BBD00F2D16C /* UI */,
+				8C1F74901C009B7E00F2D16C /* UI */,
 				8C1F74421C008C1B00F2D16C /* Other */,
 				8C1F73F21C008A5C00F2D16C /* Supporting Files */,
 			);
@@ -109,6 +224,11 @@
 		8C1F74171C008BBD00F2D16C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C1F74471C008F3200F2D16C /* Constant.h */,
+				8C1F74481C008F8800F2D16C /* ALBasicViewController.h */,
+				8C1F74491C008F8800F2D16C /* ALBasicViewController.m */,
+				8C1F74541C00994700F2D16C /* ALTabBarController.h */,
+				8C1F74551C00994700F2D16C /* ALTabBarController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -118,335 +238,6 @@
 			children = (
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		8C1F74191C008BBD00F2D16C /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F743D1C008BEE00F2D16C /* Main */,
-				8C1F741A1C008BBD00F2D16C /* Around */,
-				8C1F741F1C008BBD00F2D16C /* Circle */,
-				8C1F74241C008BBD00F2D16C /* Home */,
-				8C1F74291C008BBD00F2D16C /* News */,
-				8C1F742E1C008BBD00F2D16C /* Services */,
-				8C1F74331C008BBD00F2D16C /* Tools */,
-				8C1F74381C008BBD00F2D16C /* Us */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		8C1F741A1C008BBD00F2D16C /* Around */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F741B1C008BBD00F2D16C /* Controller */,
-				8C1F741C1C008BBD00F2D16C /* Model */,
-				8C1F741D1C008BBD00F2D16C /* Others */,
-				8C1F741E1C008BBD00F2D16C /* View */,
-			);
-			path = Around;
-			sourceTree = "<group>";
-		};
-		8C1F741B1C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F741C1C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F741D1C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F741E1C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F741F1C008BBD00F2D16C /* Circle */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F74201C008BBD00F2D16C /* Controller */,
-				8C1F74211C008BBD00F2D16C /* Model */,
-				8C1F74221C008BBD00F2D16C /* Others */,
-				8C1F74231C008BBD00F2D16C /* View */,
-			);
-			path = Circle;
-			sourceTree = "<group>";
-		};
-		8C1F74201C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F74211C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F74221C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F74231C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F74241C008BBD00F2D16C /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F74251C008BBD00F2D16C /* Controller */,
-				8C1F74261C008BBD00F2D16C /* Model */,
-				8C1F74271C008BBD00F2D16C /* Others */,
-				8C1F74281C008BBD00F2D16C /* View */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		8C1F74251C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F74261C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F74271C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F74281C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F74291C008BBD00F2D16C /* News */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F742A1C008BBD00F2D16C /* Controller */,
-				8C1F742B1C008BBD00F2D16C /* Model */,
-				8C1F742C1C008BBD00F2D16C /* Others */,
-				8C1F742D1C008BBD00F2D16C /* View */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
-		8C1F742A1C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F742B1C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F742C1C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F742D1C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F742E1C008BBD00F2D16C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F742F1C008BBD00F2D16C /* Controller */,
-				8C1F74301C008BBD00F2D16C /* Model */,
-				8C1F74311C008BBD00F2D16C /* Others */,
-				8C1F74321C008BBD00F2D16C /* View */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		8C1F742F1C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F74301C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F74311C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F74321C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F74331C008BBD00F2D16C /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F74341C008BBD00F2D16C /* Controller */,
-				8C1F74351C008BBD00F2D16C /* Model */,
-				8C1F74361C008BBD00F2D16C /* Others */,
-				8C1F74371C008BBD00F2D16C /* View */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		8C1F74341C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F74351C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F74361C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F74371C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F74381C008BBD00F2D16C /* Us */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F74391C008BBD00F2D16C /* Controller */,
-				8C1F743A1C008BBD00F2D16C /* Model */,
-				8C1F743B1C008BBD00F2D16C /* Others */,
-				8C1F743C1C008BBD00F2D16C /* View */,
-			);
-			path = Us;
-			sourceTree = "<group>";
-		};
-		8C1F74391C008BBD00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F743A1C008BBD00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F743B1C008BBD00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F743C1C008BBD00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C1F743D1C008BEE00F2D16C /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F743E1C008BEE00F2D16C /* Controller */,
-				8C1F743F1C008BEE00F2D16C /* Model */,
-				8C1F74401C008BEE00F2D16C /* Others */,
-				8C1F74411C008BEE00F2D16C /* View */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		8C1F743E1C008BEE00F2D16C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				8C1F74431C008C7A00F2D16C /* ALTabBarController.h */,
-				8C1F74441C008C7A00F2D16C /* ALTabBarController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8C1F743F1C008BEE00F2D16C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C1F74401C008BEE00F2D16C /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		8C1F74411C008BEE00F2D16C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		8C1F74421C008C1B00F2D16C /* Other */ = {
@@ -460,6 +251,303 @@
 				8C1F74461C008CAC00F2D16C /* PrefixHeader.pch */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		8C1F74901C009B7E00F2D16C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8C0374E01C00C14D00AF94C8 /* Main.storyboard */,
+				8C03751B1C01E0F900AF94C8 /* GuidView */,
+				8C1F749F1C009B7E00F2D16C /* Home */,
+				8C1F74A61C009B7E00F2D16C /* News */,
+				8C1F74981C009B7E00F2D16C /* Circle */,
+				8C1F74B41C009B7E00F2D16C /* Tools */,
+				8C1F74AD1C009B7E00F2D16C /* Services */,
+				8C0374E21C00C58500AF94C8 /* OnLive */,
+				8C1F74BB1C009B7E00F2D16C /* Us */,
+				8C1F74911C009B7E00F2D16C /* Around */,
+			);
+			name = UI;
+			path = Lib/UI;
+			sourceTree = "<group>";
+		};
+		8C1F74911C009B7E00F2D16C /* Around */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74921C009B7E00F2D16C /* Controller */,
+				8C1F74951C009B7E00F2D16C /* Model */,
+				8C1F74961C009B7E00F2D16C /* Others */,
+				8C1F74971C009B7E00F2D16C /* View */,
+			);
+			path = Around;
+			sourceTree = "<group>";
+		};
+		8C1F74921C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74931C009B7E00F2D16C /* ALAroundViewController.h */,
+				8C1F74941C009B7E00F2D16C /* ALAroundViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74951C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74961C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74971C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1F74981C009B7E00F2D16C /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74991C009B7E00F2D16C /* Controller */,
+				8C1F749C1C009B7E00F2D16C /* Model */,
+				8C1F749D1C009B7E00F2D16C /* Others */,
+				8C1F749E1C009B7E00F2D16C /* View */,
+			);
+			path = Circle;
+			sourceTree = "<group>";
+		};
+		8C1F74991C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F749A1C009B7E00F2D16C /* ALCircleViewController.h */,
+				8C1F749B1C009B7E00F2D16C /* ALCircleViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F749C1C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F749D1C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F749E1C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1F749F1C009B7E00F2D16C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74A01C009B7E00F2D16C /* Controller */,
+				8C1F74A31C009B7E00F2D16C /* Model */,
+				8C1F74A41C009B7E00F2D16C /* Others */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8C1F74A01C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74A11C009B7E00F2D16C /* ALHomeViewController.h */,
+				8C1F74A21C009B7E00F2D16C /* ALHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74A31C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74A41C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74A61C009B7E00F2D16C /* News */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74A71C009B7E00F2D16C /* Controller */,
+				8C1F74AA1C009B7E00F2D16C /* Model */,
+				8C1F74AB1C009B7E00F2D16C /* Others */,
+				8C1F74AC1C009B7E00F2D16C /* View */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		8C1F74A71C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74A81C009B7E00F2D16C /* ALNewsViewController.h */,
+				8C1F74A91C009B7E00F2D16C /* ALNewsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74AA1C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74AB1C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74AC1C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1F74AD1C009B7E00F2D16C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74AE1C009B7E00F2D16C /* Controller */,
+				8C1F74B11C009B7E00F2D16C /* Model */,
+				8C1F74B21C009B7E00F2D16C /* Others */,
+				8C1F74B31C009B7E00F2D16C /* View */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8C1F74AE1C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74AF1C009B7E00F2D16C /* ALServicesViewController.h */,
+				8C1F74B01C009B7E00F2D16C /* ALServicesViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74B11C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74B21C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74B31C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1F74B41C009B7E00F2D16C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74B51C009B7E00F2D16C /* Controller */,
+				8C1F74B81C009B7E00F2D16C /* Model */,
+				8C1F74B91C009B7E00F2D16C /* Others */,
+				8C1F74BA1C009B7E00F2D16C /* View */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		8C1F74B51C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74B61C009B7E00F2D16C /* ALToolsViewController.h */,
+				8C1F74B71C009B7E00F2D16C /* ALToolsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74B81C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74B91C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74BA1C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1F74BB1C009B7E00F2D16C /* Us */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74BC1C009B7E00F2D16C /* Controller */,
+				8C1F74BF1C009B7E00F2D16C /* Model */,
+				8C1F74C01C009B7E00F2D16C /* Others */,
+				8C1F74C11C009B7E00F2D16C /* View */,
+			);
+			path = Us;
+			sourceTree = "<group>";
+		};
+		8C1F74BC1C009B7E00F2D16C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F74BD1C009B7E00F2D16C /* ALUsViewController.h */,
+				8C1F74BE1C009B7E00F2D16C /* ALUsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C1F74BF1C009B7E00F2D16C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C1F74C01C009B7E00F2D16C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C1F74C11C009B7E00F2D16C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,6 +633,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0374E11C00C14D00AF94C8 /* Main.storyboard in Resources */,
 				8C1F74021C008A5C00F2D16C /* LaunchScreen.storyboard in Resources */,
 				8C1F73FF1C008A5C00F2D16C /* Assets.xcassets in Resources */,
 			);
@@ -564,9 +653,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1F744A1C008F8800F2D16C /* ALBasicViewController.m in Sources */,
 				8C1F73F71C008A5C00F2D16C /* AppDelegate.m in Sources */,
+				8C1F74C71C009B7E00F2D16C /* ALToolsViewController.m in Sources */,
+				8C1F74C51C009B7E00F2D16C /* ALNewsViewController.m in Sources */,
+				8C1F74C31C009B7E00F2D16C /* ALCircleViewController.m in Sources */,
 				8C1F73F41C008A5C00F2D16C /* main.m in Sources */,
-				8C1F74451C008C7A00F2D16C /* ALTabBarController.m in Sources */,
+				8C1F74C81C009B7E00F2D16C /* ALUsViewController.m in Sources */,
+				8C0375221C01E12B00AF94C8 /* ALGuideViewController.m in Sources */,
+				8C1F74C21C009B7E00F2D16C /* ALAroundViewController.m in Sources */,
+				8C1F74C41C009B7E00F2D16C /* ALHomeViewController.m in Sources */,
+				8C1F74561C00994700F2D16C /* ALTabBarController.m in Sources */,
+				8C1F74C61C009B7E00F2D16C /* ALServicesViewController.m in Sources */,
+				8C0374E91C00C58500AF94C8 /* ALOnLiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +783,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = ALLocalLife/PrefixHeader.pch;
 				INFOPLIST_FILE = ALLocalLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.AL.ALLocalLife;
@@ -695,6 +795,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = ALLocalLife/PrefixHeader.pch;
 				INFOPLIST_FILE = ALLocalLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.AL.ALLocalLife;
@@ -745,6 +846,7 @@
 				8C1F74131C008A5C00F2D16C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C1F74141C008A5C00F2D16C /* Build configuration list for PBXNativeTarget "ALLocalLifeUITests" */ = {
 			isa = XCConfigurationList;
@@ -753,6 +855,7 @@
 				8C1F74161C008A5C00F2D16C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
