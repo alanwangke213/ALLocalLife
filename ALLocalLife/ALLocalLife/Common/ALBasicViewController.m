@@ -7,11 +7,14 @@
 //
 
 #import "ALBasicViewController.h"
+#import "MBProgressHUD.h"
 
 #define kStatusBarHeight 20
 #define kNavBarHeight 44
 @interface ALBasicViewController ()
-
+{
+    MBProgressHUD *HUD;
+}
 @end
 
 @implementation ALBasicViewController
@@ -51,6 +54,22 @@
     self.navigationController.navigationBar.hidden = YES;
 
 }
+
+-(void)showLoadView{
+    HUD = [[MBProgressHUD alloc]initWithView:self.view];
+    [HUD show:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"loading";
+    [self.view addSubview:HUD];
+}
+-(void)hideLoadView{
+    if (HUD) {
+        [HUD removeFromSuperview];
+        [HUD hide:YES];
+        HUD = nil;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

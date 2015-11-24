@@ -24,6 +24,12 @@
 #define kScreenBounds [UIScreen mainScreen].bounds
 #define kScreenWidth kScreenBounds.size.width
 #define kScreenHeight kScreenBounds.size.height
+#define kTabBarHeight 49
+//分组数
+#define kHomeGroups 3
+
+
+#define kBaseURL @"http://www.qd-life.com/"
 
 
 #endif /* Constant_h */

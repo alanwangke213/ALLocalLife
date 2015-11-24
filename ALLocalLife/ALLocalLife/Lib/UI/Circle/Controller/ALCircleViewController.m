@@ -7,6 +7,7 @@
 //
 
 #import "ALCircleViewController.h"
+#import "ALLocationManager.h"
 
 @interface ALCircleViewController ()
 
@@ -17,7 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-        self.navigationItem.title = @"圈子";
+        self.titleLabel.text = @"圈子";
+    
+    [ALLocationManager locateSuccess:^(CLLocationCoordinate2D coordinate2D) {
+        NSLog(@"%f,%f",coordinate2D.latitude,coordinate2D.longitude);
+    } fail:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

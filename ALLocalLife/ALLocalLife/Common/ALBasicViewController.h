@@ -18,4 +18,8 @@
 
 @property (nonatomic ,strong) UIButton *righttButton;
 
+-(void)showLoadView;
+-(void)hideLoadView;
+
+
 @end
