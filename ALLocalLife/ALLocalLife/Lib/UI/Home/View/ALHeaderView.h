@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ALHeaderView : UIView
-@property (nonatomic ,weak) UILabel *label;
+@property (nonatomic ,weak) UIImageView *imageView;
 @end

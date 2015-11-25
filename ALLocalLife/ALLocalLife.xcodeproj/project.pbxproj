@@ -121,11 +121,11 @@
 		8C76C0771C04BCB100CF07C8 /* ALGroupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGroupViewCell.m; sourceTree = "<group>"; };
 		8C76C0791C04CC7700CF07C8 /* ALFamousViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALFamousViewCell.h; sourceTree = "<group>"; };
 		8C76C07A1C04CC7700CF07C8 /* ALFamousViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALFamousViewCell.m; sourceTree = "<group>"; };
-		8C76C07C1C04CC9500CF07C8 /* ALGuessViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALGuessViewCell.h; sourceTree = "<group>"; };
-		8C76C07D1C04CC9500CF07C8 /* ALGuessViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGuessViewCell.m; sourceTree = "<group>"; };
+		8C76C07C1C04CC9500CF07C8 /* ALGuessViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALGuessViewCell.h; path = View/ALGuessViewCell.h; sourceTree = "<group>"; };
+		8C76C07D1C04CC9500CF07C8 /* ALGuessViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALGuessViewCell.m; path = View/ALGuessViewCell.m; sourceTree = "<group>"; };
 		8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALGroupViewItem.xib; sourceTree = "<group>"; };
 		8C76C0811C04CEEB00CF07C8 /* ALFamousViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFamousViewItem.xib; sourceTree = "<group>"; };
-		8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALGuessVIewCell.xib; sourceTree = "<group>"; };
+		8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ALGuessVIewCell.xib; path = View/ALGuessVIewCell.xib; sourceTree = "<group>"; };
 		8C8536F21C0545A30051782B /* ALGroupViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALGroupViewItem.h; sourceTree = "<group>"; };
 		8C8536F31C0545A30051782B /* ALGroupViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGroupViewItem.m; sourceTree = "<group>"; };
 		8C8536F51C054D710051782B /* ALHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHeaderView.h; sourceTree = "<group>"; };
@@ -647,20 +647,9 @@
 				8C76C0651C047C7100CF07C8 /* ALHomeTableView.m */,
 				8C8536F51C054D710051782B /* ALHeaderView.h */,
 				8C8536F61C054D710051782B /* ALHeaderView.m */,
-				8C76C05F1C0478D400CF07C8 /* ALFocusView.h */,
-				8C76C0601C0478D400CF07C8 /* ALFocusView.m */,
-				8C76C0621C0478E300CF07C8 /* ALFocusView.xib */,
-				8C76C0761C04BCB100CF07C8 /* ALGroupViewCell.h */,
-				8C76C0771C04BCB100CF07C8 /* ALGroupViewCell.m */,
-				8C8536F21C0545A30051782B /* ALGroupViewItem.h */,
-				8C8536F31C0545A30051782B /* ALGroupViewItem.m */,
-				8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */,
-				8C76C0791C04CC7700CF07C8 /* ALFamousViewCell.h */,
-				8C76C07A1C04CC7700CF07C8 /* ALFamousViewCell.m */,
-				8C76C0811C04CEEB00CF07C8 /* ALFamousViewItem.xib */,
-				8C76C07C1C04CC9500CF07C8 /* ALGuessViewCell.h */,
-				8C76C07D1C04CC9500CF07C8 /* ALGuessViewCell.m */,
-				8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */,
+				8C8536F81C055B710051782B /* GroupView */,
+				8C8536F91C055B840051782B /* FamousView */,
+				8C8536FA1C055BA30051782B /* GuessView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -678,6 +667,42 @@
 				8C76C06F1C04881B00CF07C8 /* UIImageView+WebCache.m */,
 			);
 			path = AlanWebImage;
+			sourceTree = "<group>";
+		};
+		8C8536F81C055B710051782B /* GroupView */ = {
+			isa = PBXGroup;
+			children = (
+				8C76C0761C04BCB100CF07C8 /* ALGroupViewCell.h */,
+				8C76C0771C04BCB100CF07C8 /* ALGroupViewCell.m */,
+				8C8536F21C0545A30051782B /* ALGroupViewItem.h */,
+				8C8536F31C0545A30051782B /* ALGroupViewItem.m */,
+				8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */,
+			);
+			name = GroupView;
+			sourceTree = "<group>";
+		};
+		8C8536F91C055B840051782B /* FamousView */ = {
+			isa = PBXGroup;
+			children = (
+				8C76C05F1C0478D400CF07C8 /* ALFocusView.h */,
+				8C76C0601C0478D400CF07C8 /* ALFocusView.m */,
+				8C76C0621C0478E300CF07C8 /* ALFocusView.xib */,
+				8C76C0791C04CC7700CF07C8 /* ALFamousViewCell.h */,
+				8C76C07A1C04CC7700CF07C8 /* ALFamousViewCell.m */,
+				8C76C0811C04CEEB00CF07C8 /* ALFamousViewItem.xib */,
+			);
+			name = FamousView;
+			sourceTree = "<group>";
+		};
+		8C8536FA1C055BA30051782B /* GuessView */ = {
+			isa = PBXGroup;
+			children = (
+				8C76C07C1C04CC9500CF07C8 /* ALGuessViewCell.h */,
+				8C76C07D1C04CC9500CF07C8 /* ALGuessViewCell.m */,
+				8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */,
+			);
+			name = GuessView;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B14A3DDB9F7B2D9B667014E2 /* Frameworks */ = {

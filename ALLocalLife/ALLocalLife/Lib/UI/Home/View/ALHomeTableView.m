@@ -11,6 +11,7 @@
 #import "ALGroupViewCell.h"
 #import "ALFamousViewCell.h"
 #import "ALHeaderView.h"
+#import "ALGuessViewCell.h"
 
 @interface ALHomeTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,weak) ALFocusView *focusView;
@@ -26,6 +27,7 @@
         self.delegate = self;
         
         self.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
+        
     }
     return self;
 }
@@ -39,7 +41,7 @@
     
     //tableHeaderView
     ALFocusView *focusView = [[NSBundle mainBundle] loadNibNamed:@"ALFocusView" owner:nil options:nil].lastObject;
-    
+
     focusView.frame = CGRectMake(0, 0, kScreenWidth, 425 * 0.5);
     
     self.focusView = focusView;
@@ -80,35 +82,41 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 353 * 0.5;
     }else if (indexPath.section == 1){
         return 393 * 0.5;
     }else if (indexPath.section == 2){
-        return 182 * 0.5;
+        return (182 + 18 + 12) * 0.5;
     }
     
     else return 0;
 }
 
-#pragma mark - UITableViewDelegate
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 12 * 0.5)];
-    footerView.backgroundColor = [UIColor colorWithRed:238 green:238 blue:238 alpha:1];
-    return footerView;
-}
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return nil;
     }else{
         ALHeaderView *headView = [[ALHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 66 * 0.5)];
-        headView.label.text = @"xxx";
-        headView.backgroundColor = [UIColor orangeColor];
+        
+        headView.backgroundColor = [UIColor whiteColor];
+        if (section == 1) {
+            headView.imageView.image = [UIImage imageNamed:@"famous"];
+        }else if (section == 2){
+            headView.imageView.image = [UIImage imageNamed:@"guess"];
+        }
         return headView;
     }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 12 * 0.5)];
+    footerView.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
+    return footerView;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -7,15 +7,17 @@
 //
 
 #import "ALHeaderView.h"
-#define kLabelX 15
-#define kLabelH 17
+#define kImageViewX 15
+#define kImageViewY 5
+#define kImageViewW 100
+#define kImageViewH 23
 @implementation ALHeaderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kLabelX, 0, kScreenWidth - kLabelX * 2, kLabelH)];
-        label.textAlignment = NSTextAlignmentLeft;
-        self.label = label;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kImageViewX, kImageViewY, kImageViewW, kImageViewH)];
+        self.imageView = imageView;
+        [self addSubview:imageView];
     }
     return self;
 }
