@@ -10,7 +10,7 @@
 #import "ALHomeModel.h"
 #import "ALHTTPSessionManager.h"
 #import "ALHomeTableView.h"
-
+#import <objc/runtime.h>
 @interface ALHomeViewController ()
 @property (nonatomic ,strong) ALHomeModel *homeModel;
 @property (nonatomic ,weak) ALHomeTableView *tableView;
@@ -29,6 +29,7 @@
     //当tableView加载完之后再将navBar提到最前面
     [self.view bringSubviewToFront:self.navBar];
     
+    
     [self loadData];
 }
 
@@ -37,7 +38,9 @@
     ALHomeTableView *tableView = [[ALHomeTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight) style:UITableViewStyleGrouped];
     
     self.tableView = tableView;
-
+//    Ivar ivar;
+//    object_getIvar(self.view, ivar);
+//    NSLog(@"%@",ivar);
     [self.view addSubview:tableView];
     
     //当控制器添加一个scrollView的时候会自动调整内边距

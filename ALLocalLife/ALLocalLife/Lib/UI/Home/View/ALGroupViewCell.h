@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ALHomeModel.h"
 
 @interface ALGroupViewCell : UITableViewCell
-
+@property (nonatomic ,strong) ALHomeModel *homeModel;
 @end

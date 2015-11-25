@@ -10,20 +10,22 @@
 #import "ALFocusView.h"
 #import "ALGroupViewCell.h"
 #import "ALFamousViewCell.h"
+#import "ALHeaderView.h"
 
 @interface ALHomeTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,weak) ALFocusView *focusView;
+@property (nonatomic ,weak) ALGroupViewCell *groupCell;
 @end
 
 @implementation ALHomeTableView
 
 -(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self = [super initWithFrame:frame style:style]) {
+        [self loadSubViews];
         self.dataSource = self;
         self.delegate = self;
         
-        [self loadSubViews];
-        
+        self.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
     }
     return self;
 }
@@ -64,7 +66,8 @@
     if (indexPath.section == 0) {//focus
         
         ALGroupViewCell * cell = [[ALGroupViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-        
+        cell.homeModel = self.homeModel;
+        self.groupCell = cell;
         return cell;
     }else if (indexPath.section == 1){
         ALFamousViewCell *cell = [[ALFamousViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ALFamousViewCell"];
@@ -101,7 +104,8 @@
     if (section == 0) {
         return nil;
     }else{
-        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 66 * 0.5)];
+        ALHeaderView *headView = [[ALHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 66 * 0.5)];
+        headView.label.text = @"xxx";
         headView.backgroundColor = [UIColor orangeColor];
         return headView;
     }

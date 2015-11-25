@@ -7,9 +7,11 @@
 //
 
 #import "ALGroupViewCell.h"
+#import "ALGroupViewItem.h"
+#import "AlanDownLoadIMGManager.h"
 
 @interface ALGroupViewCell ()<UICollectionViewDataSource,UICollectionViewDelegate>
-
+@property (nonatomic ,weak) UICollectionView *collectionView;
 @end
 
 @implementation ALGroupViewCell
@@ -17,18 +19,15 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
     [self addSubviews];
-    
+    self.backgroundColor = [UIColor redColor];
     return self;
 }
 
 -(void)addSubviews{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
-    
 
-    layout.itemSize = CGSizeMake(kScreenWidth * 0.25, 353 * 0.5 * 0.5);
+    layout.itemSize = CGSizeMake(kScreenWidth * 0.25, (353 - 0) * 0.5 * 0.5);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     
@@ -36,8 +35,13 @@
     collectionView.dataSource = self;
     collectionView.delegate = self;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ooo"];
-    
+    self.collectionView = collectionView;
     [self addSubview:collectionView];
+}
+
+-(void)setHomeModel:(ALHomeModel *)homeModel{
+    _homeModel = homeModel;
+//    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -49,11 +53,24 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ooo" forIndexPath:indexPath];
-    if (cell == nil) {
+    
+//    cell.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1];
+    
+    ALGroupViewItem *item = [[NSBundle mainBundle] loadNibNamed:@"ALGroupViewItem" owner:nil options:nil].lastObject;
+    item.frame = CGRectMake(0, 0, kScreenWidth * 0.25, (353 - 0) * 0.5 * 0.5);
+    
+    if (self.homeModel != nil) {
+        item.titleLabel.text = [self.homeModel.group.list[indexPath.row] title];
         
-        cell = [[UICollectionViewCell alloc] init];
+        [[AlanDownLoadIMGManager sharedInstance] downloadIMGWith:[self.homeModel.group.list[indexPath.row] cover] withFinishedBlock:^(UIImage *image) {
+            
+            item.imageView.image = image;
+            
+        }];
     }
-    cell.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1];
+    
+    [cell addSubview:item];
+    
     return cell;
 }
 

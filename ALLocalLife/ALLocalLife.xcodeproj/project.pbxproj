@@ -43,6 +43,8 @@
 		8C76C0801C04CED000CF07C8 /* ALGroupViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */; };
 		8C76C0821C04CEEB00CF07C8 /* ALFamousViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C76C0811C04CEEB00CF07C8 /* ALFamousViewItem.xib */; };
 		8C76C0841C04CF1500CF07C8 /* ALGuessVIewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */; };
+		8C8536F41C0545A30051782B /* ALGroupViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8536F31C0545A30051782B /* ALGroupViewItem.m */; };
+		8C8536F71C054D710051782B /* ALHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8536F61C054D710051782B /* ALHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,10 @@
 		8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALGroupViewItem.xib; sourceTree = "<group>"; };
 		8C76C0811C04CEEB00CF07C8 /* ALFamousViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFamousViewItem.xib; sourceTree = "<group>"; };
 		8C76C0831C04CF1500CF07C8 /* ALGuessVIewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALGuessVIewCell.xib; sourceTree = "<group>"; };
+		8C8536F21C0545A30051782B /* ALGroupViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALGroupViewItem.h; sourceTree = "<group>"; };
+		8C8536F31C0545A30051782B /* ALGroupViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGroupViewItem.m; sourceTree = "<group>"; };
+		8C8536F51C054D710051782B /* ALHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHeaderView.h; sourceTree = "<group>"; };
+		8C8536F61C054D710051782B /* ALHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHeaderView.m; sourceTree = "<group>"; };
 		E58E4208C99FA71771CBBA32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -637,13 +643,17 @@
 		8C76C05E1C04789700CF07C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C76C0641C047C7100CF07C8 /* ALHomeTableView.h */,
+				8C76C0651C047C7100CF07C8 /* ALHomeTableView.m */,
+				8C8536F51C054D710051782B /* ALHeaderView.h */,
+				8C8536F61C054D710051782B /* ALHeaderView.m */,
 				8C76C05F1C0478D400CF07C8 /* ALFocusView.h */,
 				8C76C0601C0478D400CF07C8 /* ALFocusView.m */,
 				8C76C0621C0478E300CF07C8 /* ALFocusView.xib */,
-				8C76C0641C047C7100CF07C8 /* ALHomeTableView.h */,
-				8C76C0651C047C7100CF07C8 /* ALHomeTableView.m */,
 				8C76C0761C04BCB100CF07C8 /* ALGroupViewCell.h */,
 				8C76C0771C04BCB100CF07C8 /* ALGroupViewCell.m */,
+				8C8536F21C0545A30051782B /* ALGroupViewItem.h */,
+				8C8536F31C0545A30051782B /* ALGroupViewItem.m */,
 				8C76C07F1C04CED000CF07C8 /* ALGroupViewItem.xib */,
 				8C76C0791C04CC7700CF07C8 /* ALFamousViewCell.h */,
 				8C76C07A1C04CC7700CF07C8 /* ALFamousViewCell.m */,
@@ -843,6 +853,7 @@
 				8C1F74C71C009B7E00F2D16C /* ALToolsViewController.m in Sources */,
 				8C76C05D1C0473B000CF07C8 /* NSArray+Log.m in Sources */,
 				8C1F74C51C009B7E00F2D16C /* ALNewsViewController.m in Sources */,
+				8C8536F41C0545A30051782B /* ALGroupViewItem.m in Sources */,
 				8C1F74C31C009B7E00F2D16C /* ALCircleViewController.m in Sources */,
 				8C1F73F41C008A5C00F2D16C /* main.m in Sources */,
 				8C1F74C81C009B7E00F2D16C /* ALUsViewController.m in Sources */,
@@ -858,6 +869,7 @@
 				8C0375281C01EB7600AF94C8 /* ALLocationManager.m in Sources */,
 				8C1F74C61C009B7E00F2D16C /* ALServicesViewController.m in Sources */,
 				8C76C0611C0478D400CF07C8 /* ALFocusView.m in Sources */,
+				8C8536F71C054D710051782B /* ALHeaderView.m in Sources */,
 				8C0374E91C00C58500AF94C8 /* ALOnLiveViewController.m in Sources */,
 				8C76C07B1C04CC7700CF07C8 /* ALFamousViewCell.m in Sources */,
 				8C76C00F1C036ECE00CF07C8 /* ALHomeModel.m in Sources */,
