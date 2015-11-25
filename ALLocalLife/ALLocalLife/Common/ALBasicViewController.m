@@ -8,9 +8,11 @@
 
 #import "ALBasicViewController.h"
 #import "MBProgressHUD.h"
+#import "ALLoginViewController.h"
 
-#define kStatusBarHeight 20
-#define kNavBarHeight 44
+#define isLogined NO
+
+
 @interface ALBasicViewController ()
 {
     MBProgressHUD *HUD;
@@ -35,16 +37,30 @@
     
     self.leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kNavBarHeight, kNavBarHeight)];
     [self.leftButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [self.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.navBar addSubview:self.leftButton];
     
-    self.righttButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - kNavBarHeight, kStatusBarHeight, kNavBarHeight, kNavBarHeight)];
-    [self.righttButton setBackgroundImage:[UIImage imageNamed:@"login_user"] forState:UIControlStateNormal];
-    [self.navBar addSubview:self.righttButton];
+    
+    if (isLogined) {// 登录了
+        //    [self.rightButton setBackgroundImage:[UIImage imageNamed:@"login_user"] forState:UIControlStateNormal];
+    }else{//未登录
+        self.rightButton = [[UIButton alloc] init];
+        [self.rightButton setTitle:@"登录/注册" forState:UIControlStateNormal];
+        [self.rightButton sizeToFit];
+        self.rightButton.frame = CGRectMake(kScreenWidth - self.rightButton.bounds.size.width - 10, (kNavBarHeight - self.rightButton.bounds.size.height)*0.5 + kStatusBarHeight, self.rightButton.frame.size.width, self.rightButton.frame.size.height);
+        self.rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [self.rightButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+        self.rightButton.adjustsImageWhenHighlighted = NO;
+    }
+    [self.navBar addSubview:self.rightButton];
+    
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kNavBarHeight, kStatusBarHeight, kScreenWidth - 2 * kNavBarHeight, kNavBarHeight)];
+    
     self.titleLabel.text = @"title";
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize:19];
+    
     self.titleLabel.textColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
     [self.navBar addSubview:self.titleLabel];
     
@@ -70,10 +86,14 @@
     }
 }
 
+-(void)back{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)login:(UIButton *)sender{
+    ALLoginViewController *vc = [[ALLoginViewController alloc] init];
+    [self.navigationController showViewController:vc sender:nil];
 }
 
 /*

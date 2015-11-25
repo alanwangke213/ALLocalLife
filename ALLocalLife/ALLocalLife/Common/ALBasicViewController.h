@@ -16,7 +16,7 @@
 
 @property (nonatomic ,strong) UILabel *titleLabel;
 
-@property (nonatomic ,strong) UIButton *righttButton;
+@property (nonatomic ,strong) UIButton *rightButton;
 
 -(void)showLoadView;
 -(void)hideLoadView;

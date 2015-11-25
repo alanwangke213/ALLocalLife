@@ -31,7 +31,7 @@
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 353) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 353 * 0.5) collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ooo"];

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ALGuessViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageVIew;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *starView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introLabel;
 
 @end

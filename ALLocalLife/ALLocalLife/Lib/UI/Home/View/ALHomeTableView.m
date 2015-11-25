@@ -12,6 +12,7 @@
 #import "ALFamousViewCell.h"
 #import "ALHeaderView.h"
 #import "ALGuessViewCell.h"
+#import "AlanDownLoadIMGManager.h"
 
 @interface ALHomeTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,weak) ALFocusView *focusView;
@@ -47,7 +48,9 @@
     self.focusView = focusView;
     self.tableHeaderView = focusView;
 }
+
 #pragma mark - UITableViewDataSource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return kHomeGroups;
 }
@@ -58,31 +61,66 @@
     }else if (section == 1){
         return 1;
     }else if (section == 2){
-        return 10;
+        return self.homeModel.guess.list.count;
     }
     
     return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {//focus
+    if (indexPath.section == 0) {//group
         
-        ALGroupViewCell * cell = [[ALGroupViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-        cell.homeModel = self.homeModel;
-        self.groupCell = cell;
+        ALGroupViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (nil == cell) {
+            cell = [[ALGroupViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+            cell.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
+            cell.homeModel = self.homeModel;
+            self.groupCell = cell;
+        }
         return cell;
-    }else if (indexPath.section == 1){
-        ALFamousViewCell *cell = [[ALFamousViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ALFamousViewCell"];
-        cell.backgroundColor = [UIColor lightGrayColor];
+        
+    }else if (indexPath.section == 1){//famous
+        
+        ALFamousViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ALFamousViewCell"];
+        if (nil == cell) {
+            cell = [[ALFamousViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ALFamousViewCell"];
+            cell.homeModel = _homeModel;
+        }
         return cell;
+        
+    }else if (indexPath.section == 2){//guess
+        
+        ALGuessViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ALGuessViewCell"];
+        if (nil == cell){
+            cell = [[NSBundle mainBundle] loadNibNamed:@"ALGuessViewCell" owner:nil options:nil].lastObject;
+            cell.frame = CGRectMake(0, 0, kScreenWidth, (182 + 18 + 12) * 0.5);
+            
+            [[AlanDownLoadIMGManager sharedInstance] downloadIMGWith:[self.homeModel.guess.list[indexPath.row]cover] withFinishedBlock:^(UIImage *image) {
+                
+                cell.imageVIew.image = image;
+                
+            }];
+            
+            cell.titleLabel.text = [self.homeModel.guess.list[indexPath.row] title];
+            cell.introLabel.text = [self.homeModel.guess.list[indexPath.row] intro];
+            cell.distanceLabel.text = [NSString stringWithFormat:@"距离200米"];
+            cell.starView.image = [UIImage imageNamed:[NSString stringWithFormat:@"star_%ld",[self.homeModel.guess.list[indexPath.row] score]]];
+            
+        }
+        return cell;
+        
     }
     
+    //备用
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     cell.backgroundColor = [UIColor greenColor];
     return cell;
 }
 
+
 #pragma mark - UITableViewDelegate
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 353 * 0.5;
@@ -94,8 +132,6 @@
     
     else return 0;
 }
-
-
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {

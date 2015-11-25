@@ -8,6 +8,10 @@
 
 #import "ALGuessViewCell.h"
 
+@interface ALGuessViewCell ()
+
+@end
+
 @implementation ALGuessViewCell
 
 - (void)awakeFromNib {

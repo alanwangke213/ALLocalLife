@@ -81,12 +81,14 @@
     AlanImageDLOperation* imageDLOp = [AlanImageDLOperation
         operationWith:address
         finishedBlock:^(UIImage* image) {
+            if (image) {
+                [self.memoryCache setObject:image forKey:address];
+                
+                [self.operationCache removeObjectForKey:address];
+                
+                finishedBlock(image);
+            }
 
-            [self.memoryCache setObject:image forKey:address];
-
-            [self.operationCache removeObjectForKey:address];
-            
-            finishedBlock(image);
         }];
 
     [self.operationCache setObject:imageDLOp forKey:address];

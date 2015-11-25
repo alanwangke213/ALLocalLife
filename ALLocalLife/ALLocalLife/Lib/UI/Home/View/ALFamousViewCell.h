@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ALHomeModel.h"
 @interface ALFamousViewCell : UITableViewCell
-
+@property (nonatomic ,strong) ALHomeModel *homeModel;
 @end
