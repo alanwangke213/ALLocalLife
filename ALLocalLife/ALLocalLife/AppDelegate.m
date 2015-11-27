@@ -13,7 +13,7 @@
 //#import "UMSocial.h"
 //#import "UMSocialSinaSSOHandler.h"
 #import "SSKeychain.h"
-
+#import "ALBasicViewController.h"
 
 @interface AppDelegate ()
 
@@ -114,7 +114,12 @@
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
         NSString *title = NSLocalizedString(@"认证结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@",
+                             NSLocalizedString(@"响应状态", nil), (int)response.statusCode,
+                             [(WBAuthorizeResponse *)response userID],
+                             [(WBAuthorizeResponse *)response accessToken],
+                             NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
+                             NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
         
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
@@ -128,14 +133,19 @@
         self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
         [alert show];
         
+        
         /*保存用户信息并登录*/
         //保存当前用户名为userID
         [[NSUserDefaults standardUserDefaults] setValue:[(WBAuthorizeResponse *)response userID] forKey:@"username"];
+        
         //在钥匙串中为 userID 设置 密码为 accessToken
         [SSKeychain setPassword:[(WBAuthorizeResponse *)response accessToken] forService:[NSBundle mainBundle].bundleIdentifier account:[(WBAuthorizeResponse *)response userID]];
-        
-        
-        
+
+        //登录过后修改rootVc 的登录状态 <无法自动修改>
+        ALTabBarController *tabVc = (ALTabBarController *)self.window.rootViewController;
+        UINavigationController *navVc = tabVc.viewControllers[0];
+        ALBasicViewController *basicVc = navVc.viewControllers[0];
+        [basicVc changeRightBtnWithLoginStatus];
     }
 }
 

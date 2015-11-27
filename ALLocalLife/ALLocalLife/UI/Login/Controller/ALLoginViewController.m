@@ -13,6 +13,7 @@
 //#import "UMSocial.h"
 #import "AppDelegate.h"
 //#import "ALSSOManager.h"
+#import "ALObjFactory.h"
 
 #define kTFPadding 20
 #define kTFHeight 80 * 0.5
@@ -46,7 +47,7 @@
 -(void)addSubviews{
     
     //usernameTF
-    UITextField *usernameTF = [self getBlueTFWithFrame:CGRectMake(kTFPadding, kStatusBarHeight + kNavBarHeight + 24, kTFWidth, kTFHeight) placeHolder:@"新用户"];
+    UITextField *usernameTF = [ALObjFactory getBlueTFWithFrame:CGRectMake(kTFPadding, kStatusBarHeight + kNavBarHeight + 24, kTFWidth, kTFHeight) placeHolder:@"新用户"];
     usernameTF.text = [[NSUserDefaults standardUserDefaults] valueForKey:kUserName];
     usernameTF.delegate = self;
     
@@ -56,13 +57,13 @@
     [self.view addSubview:usernameTF];
     
     //noticeLabel
-    UILabel *noticeLabel = [self getLabelwithTitle:@"" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor redColor]];
+    UILabel *noticeLabel = [ALObjFactory getLabelwithTitle:@"" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor redColor]];
     noticeLabel.frame = CGRectMake(kTFPadding, CGRectGetMaxY(usernameTF.frame) + noticeLabel.frame.size.height * 0.5 + 5, kTFWidth, 14);
     self.noticeLabel = noticeLabel;
     [self.view addSubview:noticeLabel];
     
     //paswordTF
-    UITextField *passwordTF = [self getBlueTFWithFrame:CGRectMake(kTFPadding, kStatusBarHeight + kNavBarHeight + 33 + kTFHeight + 15, kTFWidth, kTFHeight) placeHolder:@"6-12位 仅限数字或字母"];
+    UITextField *passwordTF = [ALObjFactory getBlueTFWithFrame:CGRectMake(kTFPadding, kStatusBarHeight + kNavBarHeight + 33 + kTFHeight + 15, kTFWidth, kTFHeight) placeHolder:@"6-12位 仅限数字或字母"];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kKeepPassword]) {
         passwordTF.text = [[NSUserDefaults standardUserDefaults] valueForKey:kPassword];
@@ -105,7 +106,7 @@
     [self.view addSubview:forgetPasswordBtn];
     
     //LoginBtn
-    UIButton *loginBtn = [self getBlueButtonWithFrame:CGRectMake(kTFPadding, CGRectGetMaxY(keepPasswordBtn.frame) + 15, passwordTF.frame.size.width, passwordTF.frame.size.height) withTitle:@"登录"];
+    UIButton *loginBtn = [ALObjFactory getBlueButtonWithFrame:CGRectMake(kTFPadding, CGRectGetMaxY(keepPasswordBtn.frame) + 15, passwordTF.frame.size.width, passwordTF.frame.size.height) withTitle:@"登录"];
     loginBtn.enabled = NO;
     loginBtn.adjustsImageWhenHighlighted = NO;
     self.loginBtn = loginBtn;
@@ -113,13 +114,13 @@
     [self.view addSubview:loginBtn];
     
     //redLabel
-    UILabel *redLabel = [self getLabelwithTitle:@"还没有账号吗?立即注册" withFont:[UIFont systemFontOfSize:16] withColor:[UIColor colorWithRed:255/255. green:97/255. blue:154/255. alpha:1.]];
+    UILabel *redLabel = [ALObjFactory getLabelwithTitle:@"还没有账号吗?立即注册" withFont:[UIFont systemFontOfSize:16] withColor:[UIColor colorWithRed:255/255. green:97/255. blue:154/255. alpha:1.]];
     redLabel.center = CGPointMake(kScreenWidth * 0.5, CGRectGetMaxY(loginBtn.frame) + 33 + redLabel.frame.size.height * 0.5);
     
     [self.view addSubview:redLabel];
     
     //blueLabel
-    UILabel *blueLabel = [self getLabelwithTitle:@"第三方登录" withFont:[UIFont systemFontOfSize:12] withColor:[UIColor colorWithRed:81/255. green:190/255. blue:249/255. alpha:1.]];
+    UILabel *blueLabel = [ALObjFactory getLabelwithTitle:@"第三方登录" withFont:[UIFont systemFontOfSize:12] withColor:[UIColor colorWithRed:81/255. green:190/255. blue:249/255. alpha:1.]];
     blueLabel.center = CGPointMake(kScreenWidth * 0.5, CGRectGetMaxY(redLabel.frame) + 30 + blueLabel.frame.size.height * 0.5);
     [self.view addSubview:blueLabel];
     
@@ -160,61 +161,6 @@
         [self.view addSubview:btn];
     }
 }
-
-//get Blue UITextFiled
--(UITextField *)getBlueTFWithFrame:(CGRect)rect placeHolder:(NSString *)placeholder{
-    UITextField *TF = [[UITextField alloc] initWithFrame:rect];
-    TF.backgroundColor = [UIColor colorWithRed:0.404 green:0.765 blue:1.000 alpha:1.000];
-    TF.textAlignment = NSTextAlignmentLeft;
-    NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor whiteColor],
-                                 NSFontAttributeName : [UIFont systemFontOfSize:15]
-                                 };
-    TF.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:attributes];
-    
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 45, kTFHeight)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kTFHeight, kTFHeight)];
-    imageView.image = [UIImage imageNamed:@"login_password"];
-    imageView.backgroundColor = [UIColor colorWithRed:0.235 green:0.659 blue:0.965 alpha:1.000];
-    [leftView addSubview:imageView];
-    
-    TF.layer.cornerRadius = 5;
-    TF.layer.masksToBounds = YES;
-    TF.leftView = leftView;
-    TF.leftViewMode = UITextFieldViewModeAlways;
-    
-    return TF;
-}
-
-//get Blue Button
--(UIButton *)getBlueButtonWithFrame:(CGRect)rect withTitle:(NSString *)title{
-    UIButton *btn = [[UIButton alloc] initWithFrame:rect];
-    
-    btn.titleLabel.text = title;
-    
-    btn.titleLabel.font = [UIFont systemFontOfSize:19];
-    
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:title];
-    NSRange strRange = {0,[str length]};
-    //设置颜色
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255/255. green:255/255. blue:255/255. alpha:1] range:strRange];
-    [btn setAttributedTitle:str forState:UIControlStateNormal];
-    
-    btn.backgroundColor = [UIColor colorWithRed:0.235 green:0.659 blue:0.965 alpha:1.000];
-    
-    return  btn;
-}
-
--(UILabel *)getLabelwithTitle:(NSString *)title withFont:(UIFont *)font withColor:(UIColor *)color{
-    UILabel *label = [[UILabel alloc] init];
-    label.text = title;
-    label.font = font;
-    label.textColor = color;
-    [label sizeToFit];
-    return label;
-}
-
-
-
 
 #pragma mark - UmengSDK 暂未使用
 -(void)umengLogin{
@@ -269,6 +215,7 @@
     
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
     request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+                         @"screen_name":@"Praerr",
                          @"Other_Info_1": [NSNumber numberWithInt:123],
                          @"Other_Info_2": @[@"obj1", @"obj2"],
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};

@@ -15,11 +15,12 @@
 #import "ALToolsViewController.h"
 #import "ALUsViewController.h"
 #import "ALOnLiveViewController.h"
+#import "ALNavigationController.h"
 
 #define kTabBarBtnCount 5
 #define kMoreViewBtnCount 4
 #define kTabBarButtnWidth self.tabBar.frame.size.width/kTabBarBtnCount
-#define kTabBarHeight self.tabBar.frame.size.height
+//#define kTabBarHeight self.tabBar.frame.size.height
 #define kMoreViewHeight 44
 @interface ALTabBarController ()
 @property (nonatomic ,weak) UIButton *currBtn;
@@ -88,7 +89,7 @@
         
         UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:obj];
         
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        ALNavigationController *nav = [[ALNavigationController alloc] initWithRootViewController:vc];
         
         [vcArray addObject:nav];
         

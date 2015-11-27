@@ -21,6 +21,6 @@
 -(void)showLoadViewWithTitle:(NSString *)title;
 -(void)showNoticeViewWithTitle:(NSString *)title;
 -(void)hideLoadView;
-
+-(void)changeRightBtnWithLoginStatus;
 
 @end

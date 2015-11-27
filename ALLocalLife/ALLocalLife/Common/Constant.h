@@ -35,6 +35,7 @@
 //ALLoginVc
 #define kPassword @"password"
 #define kUserName @"username"
+#define kUserLogo @"userLogo"
 #define kKeepPassword @"kKeepPassword"
 //#define kWeiBoRedirectURI @"https://api.weibo.com/oauth2/default.html"
 #define kWeiBoRedirectURI @"http://sns.whalecloud.com/sina2/callback"

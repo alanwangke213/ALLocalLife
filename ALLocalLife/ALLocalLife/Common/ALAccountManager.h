@@ -15,4 +15,6 @@
 
 +(BOOL)checkLoginStatue;
 
++(void)logout;
+
 @end

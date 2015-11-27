@@ -19,6 +19,6 @@
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbRefreshToken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;
-
+-(void)chooseRootViewController;
 @end
 

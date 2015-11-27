@@ -11,6 +11,7 @@
 #import "ALLoginViewController.h"
 #import "SSKeychain.h"
 #import "ALAccountManager.h"
+#import "ALSelfCenterViewController.h"
 
 @interface ALBasicViewController ()
 {
@@ -23,8 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:random()%256/255.0 green:random()%256/255.0 blue:random()%256/255.0 alpha:1];
-    
+    self.view.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1.];
     
     [self addNavBar];
 }
@@ -39,24 +39,10 @@
     [self.leftButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
     [self.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.navBar addSubview:self.leftButton];
-    
-    
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:kUserLogo]);
     
     //rightButton
-    if ([ALAccountManager checkLoginStatue]) {// 登录了
-        self.rightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - kNavBarHeight, kStatusBarHeight, kNavBarHeight, kNavBarHeight)];
-        [self.rightButton setBackgroundImage:[UIImage imageNamed:@"login_user"] forState:UIControlStateNormal];
-    }else{//未登录
-        self.rightButton = [[UIButton alloc] init];
-        [self.rightButton setTitle:@"登录/注册" forState:UIControlStateNormal];
-        [self.rightButton sizeToFit];
-        self.rightButton.frame = CGRectMake(kScreenWidth - self.rightButton.bounds.size.width - 10, (kNavBarHeight - self.rightButton.bounds.size.height)*0.5 + kStatusBarHeight, self.rightButton.frame.size.width, self.rightButton.frame.size.height);
-        self.rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        self.rightButton.adjustsImageWhenHighlighted = NO;
-    }
-    
-    [self.rightButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navBar addSubview:self.rightButton];
+    [self changeRightBtnWithLoginStatus];
     
     //titleLabel
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kNavBarHeight, kStatusBarHeight, kScreenWidth - 2 * kNavBarHeight, kNavBarHeight)];
@@ -71,6 +57,28 @@
     [self.view addSubview:self.navBar];
     
     self.navigationController.navigationBar.hidden = YES;
+
+}
+
+-(void)changeRightBtnWithLoginStatus{
+    [self.rightButton removeFromSuperview];;
+    //rightButton
+    if ([ALAccountManager checkLoginStatue]) {// 登录了
+        self.rightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - kNavBarHeight, kStatusBarHeight, kNavBarHeight, kNavBarHeight)];
+        [self.rightButton setBackgroundImage:[UIImage imageNamed:@"login_user"] forState:UIControlStateNormal];
+    }else{//未登录
+        self.rightButton = [[UIButton alloc] init];
+        [self.rightButton setTitle:@"登录/注册" forState:UIControlStateNormal];
+        [self.rightButton sizeToFit];
+        self.rightButton.frame = CGRectMake(kScreenWidth - self.rightButton.bounds.size.width - 10, (kNavBarHeight - self.rightButton.bounds.size.height)*0.5 + kStatusBarHeight, self.rightButton.frame.size.width, self.rightButton.frame.size.height);
+        self.rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.rightButton.adjustsImageWhenHighlighted = NO;
+    }
+    self.rightButton.adjustsImageWhenDisabled = NO;
+    
+    [self.rightButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.navBar addSubview:self.rightButton];
 
 }
 
@@ -112,8 +120,12 @@
 
 -(void)login:(UIButton *)sender{
     if ([[ALAccountManager sharedInstance] isLogined]) {
+//    if (NO) {
         NSLog(@"已经登录了");
-//        [[ALSelfViewController alloc] init];
+        ALSelfCenterViewController *selfVc = [[ALSelfCenterViewController alloc] init];
+        
+        [self.navigationController showViewController:selfVc sender:nil];
+        
     }else{
         ALLoginViewController *vc = [[ALLoginViewController alloc] init];
         [self.navigationController showViewController:vc sender:nil];
