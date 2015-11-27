@@ -10,8 +10,10 @@
 #import "ALHomeModel.h"
 #import "ALHTTPSessionManager.h"
 #import "ALHomeTableView.h"
+#import "ALProductDetailViewController.h"
 #import <objc/runtime.h>
-@interface ALHomeViewController ()
+
+@interface ALHomeViewController ()<HomeTableViewDelegate>
 @property (nonatomic ,strong) ALHomeModel *homeModel;
 @property (nonatomic ,weak) ALHomeTableView *tableView;
 @end
@@ -36,7 +38,7 @@
 -(void)initialHomeView{
     
     ALHomeTableView *tableView = [[ALHomeTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight) style:UITableViewStyleGrouped];
-    
+    tableView.cellDelegate = self;
     self.tableView = tableView;
 //    Ivar ivar;
 //    object_getIvar(self.view, ivar);
@@ -66,6 +68,12 @@
     
 }
 
+#pragma mark - HomeTableViewDelegate
+-(void)didClickCellWithIndexpath:(NSIndexPath *)indexpath subIndex:(NSInteger *)index{
+    ALProductDetailViewController *productDetailVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ALProductDetailViewController"];
+    
+    [self.navigationController showViewController:productDetailVc sender:nil];
+}
 /*
 #pragma mark - Navigation
 

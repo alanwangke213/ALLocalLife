@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>id</key>
+	<string>0</string>
+	<key>title</key>
+	<string>新农盟黑蒜</string>
+	<key>content</key>
+	<string>黑蒜又名黑大蒜、发酵黑蒜、黑蒜头，是用新鲜的生蒜，带皮放在高温高湿的发酵箱里发酵60~90 天，让其自然发酵制成的食品，它在保留生大蒜原有成份，对增强人体免疫力、恢复人体疲劳，保持人体健康起到巨大积极作用，而且味道酸甜，食后无蒜味，不上火，是速效性的保健食品。</string>
+	<key>price</key>
+	<string>88</string>
+	<key>goods_anapshot_id</key>
+	<string>52</string>
+	<key>shop_id</key>
+	<string>0</string>
+	<key>shop_name</key>
+	<string>新农盟黑蒜</string>
+	<key>address</key>
+	<string>青岛新农盟产业发展中心</string>
+	<key>phone</key>
+	<string>0532-88725882</string>
+	<key>lon</key>
+	<string>120.476156</string>
+	<key>lat</key>
+	<string>36.1116</string>
+	<key>goods_list</key>
+	<array/>
+</dict>
+</plist>

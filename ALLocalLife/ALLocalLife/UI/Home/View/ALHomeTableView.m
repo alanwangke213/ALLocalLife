@@ -14,6 +14,7 @@
 #import "ALGuessViewCell.h"
 #import "AlanDownLoadIMGManager.h"
 
+
 @interface ALHomeTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,weak) ALFocusView *focusView;
 @property (nonatomic ,weak) ALGroupViewCell *groupCell;
@@ -26,7 +27,6 @@
         [self loadSubViews];
         self.dataSource = self;
         self.delegate = self;
-        
         self.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
         
     }
@@ -119,6 +119,14 @@
 
 
 #pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"1");
+    if ([self.cellDelegate respondsToSelector:@selector(didClickCellWithIndexpath:subIndex:)]) {
+        [self.cellDelegate didClickCellWithIndexpath:indexPath subIndex:nil];
+    }
+}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
