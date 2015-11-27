@@ -6,17 +6,18 @@
 //  Copyright © 2015年 AL. All rights reserved.
 //
 
-#import "ALHomeViewController.h"
+#import "ALServicesViewController.h"
 
-@interface ALHomeViewController ()
+@interface ALServicesViewController ()
 
 @end
 
-@implementation ALHomeViewController
+@implementation ALServicesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        self.navigationItem.title = @"社区服务";
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,6 @@
 
 #import "ALBasicViewController.h"
 
-@interface ALHomeViewController : ALBasicViewController
+@interface ALServicesViewController : ALBasicViewController
 
 @end

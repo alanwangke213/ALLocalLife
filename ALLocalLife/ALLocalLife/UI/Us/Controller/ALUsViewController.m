@@ -6,17 +6,18 @@
 //  Copyright © 2015年 AL. All rights reserved.
 //
 
-#import "ALHomeViewController.h"
+#import "ALUsViewController.h"
 
-@interface ALHomeViewController ()
+@interface ALUsViewController ()
 
 @end
 
-@implementation ALHomeViewController
+@implementation ALUsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        self.navigationItem.title = @"我们";
 }
 
 - (void)didReceiveMemoryWarning {

@@ -30,9 +30,17 @@
 #define kTabBarHeight 49
 //分组数
 #define kHomeGroups 3
-
 #define kIsLogined @"isLogined"
 
+//ALLoginVc
+#define kPassword @"password"
+#define kUserName @"username"
+#define kKeepPassword @"kKeepPassword"
+//#define kWeiBoRedirectURI @"https://api.weibo.com/oauth2/default.html"
+#define kWeiBoRedirectURI @"http://sns.whalecloud.com/sina2/callback"
+#define kSinaWeiBoAppKey @"1396052786"
+
+//ALHTTPSession
 #define kBaseURL @"http://www.qd-life.com/"
 
 

@@ -6,17 +6,25 @@
 //  Copyright © 2015年 AL. All rights reserved.
 //
 
-#import "ALHomeViewController.h"
+#import "ALCircleViewController.h"
+#import "ALLocationManager.h"
 
-@interface ALHomeViewController ()
+@interface ALCircleViewController ()
 
 @end
 
-@implementation ALHomeViewController
+@implementation ALCircleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        self.titleLabel.text = @"圈子";
+    
+    [ALLocationManager locateSuccess:^(CLLocationCoordinate2D coordinate2D) {
+        NSLog(@"%f,%f",coordinate2D.latitude,coordinate2D.longitude);
+    } fail:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

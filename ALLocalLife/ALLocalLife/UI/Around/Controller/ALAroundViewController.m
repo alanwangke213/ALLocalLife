@@ -6,17 +6,18 @@
 //  Copyright © 2015年 AL. All rights reserved.
 //
 
-#import "ALHomeViewController.h"
+#import "ALAroundViewController.h"
 
-@interface ALHomeViewController ()
+@interface ALAroundViewController ()
 
 @end
 
-@implementation ALHomeViewController
+@implementation ALAroundViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"周边";
 }
 
 - (void)didReceiveMemoryWarning {

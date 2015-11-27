@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="haw-dI-5JB" customClass="ALFocusView">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bx8-1n-8Kl">
+                    <rect key="frame" x="0.0" y="0.0" width="433" height="250"/>
+                    <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arF-Vg-A8u" userLabel="CoverView">
+                    <rect key="frame" x="0.0" y="226" width="433" height="24"/>
+                    <subviews>
+                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEd-OE-lLj" userLabel="BlackCover">
+                            <rect key="frame" x="0.0" y="0.0" width="433" height="24"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-3n-93K">
+                            <rect key="frame" x="10" y="2" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="FuC-Uc-x90">
+                            <rect key="frame" x="384" y="-6" width="39" height="37"/>
+                        </pageControl>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="WEd-OE-lLj" secondAttribute="trailing" id="ItE-Kw-XyU"/>
+                        <constraint firstItem="WEd-OE-lLj" firstAttribute="leading" secondItem="arF-Vg-A8u" secondAttribute="leading" id="OjD-B3-ROM"/>
+                        <constraint firstAttribute="bottom" secondItem="WEd-OE-lLj" secondAttribute="bottom" id="Pa9-78-Hor"/>
+                        <constraint firstItem="ccj-3n-93K" firstAttribute="leading" secondItem="arF-Vg-A8u" secondAttribute="leading" constant="10" id="W53-cR-SKn"/>
+                        <constraint firstItem="ccj-3n-93K" firstAttribute="centerY" secondItem="arF-Vg-A8u" secondAttribute="centerY" id="iJW-DW-m1F"/>
+                        <constraint firstItem="WEd-OE-lLj" firstAttribute="top" secondItem="arF-Vg-A8u" secondAttribute="top" id="mdu-s1-P0e"/>
+                        <constraint firstAttribute="height" constant="24" id="nO3-3C-Wkc"/>
+                        <constraint firstAttribute="trailing" secondItem="FuC-Uc-x90" secondAttribute="trailing" constant="10" id="oXy-rF-MBG"/>
+                        <constraint firstItem="FuC-Uc-x90" firstAttribute="centerY" secondItem="arF-Vg-A8u" secondAttribute="centerY" id="zSP-5q-jrM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="arF-Vg-A8u" firstAttribute="leading" secondItem="haw-dI-5JB" secondAttribute="leading" id="4VW-Y8-zxY"/>
+                <constraint firstItem="Bx8-1n-8Kl" firstAttribute="leading" secondItem="haw-dI-5JB" secondAttribute="leading" id="8Vj-dr-UOE"/>
+                <constraint firstAttribute="bottom" secondItem="Bx8-1n-8Kl" secondAttribute="bottom" id="LT7-lv-qJm"/>
+                <constraint firstAttribute="trailing" secondItem="Bx8-1n-8Kl" secondAttribute="trailing" id="PWd-Ia-W3g"/>
+                <constraint firstAttribute="trailing" secondItem="arF-Vg-A8u" secondAttribute="trailing" id="aBG-ii-y7u"/>
+                <constraint firstAttribute="bottom" secondItem="arF-Vg-A8u" secondAttribute="bottom" id="nnd-Mq-4OE"/>
+                <constraint firstItem="Bx8-1n-8Kl" firstAttribute="top" secondItem="haw-dI-5JB" secondAttribute="top" id="wdq-52-oRv"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="adPageControl" destination="FuC-Uc-x90" id="1km-aK-tVm"/>
+                <outlet property="adTitleLabel" destination="ccj-3n-93K" id="YHJ-od-2sF"/>
+                <outlet property="adsView" destination="Bx8-1n-8Kl" id="M3V-bt-hzI"/>
+            </connections>
+            <point key="canvasLocation" x="221.5" y="162"/>
+        </view>
+    </objects>
+</document>

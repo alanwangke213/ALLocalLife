@@ -18,7 +18,8 @@
 
 @property (nonatomic ,strong) UIButton *rightButton;
 
--(void)showLoadView;
+-(void)showLoadViewWithTitle:(NSString *)title;
+-(void)showNoticeViewWithTitle:(NSString *)title;
 -(void)hideLoadView;
 
 

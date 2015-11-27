@@ -4,117 +4,43 @@
 //
 //  Created by 王可成 on 15/11/21.
 //  Copyright © 2015年 AL. All rights reserved.
-//
-
+/*-----------------------------------*/
+//  umeng:5655dea1e0f55a9608003239
+/*-----------------------------------*/
 #import "AppDelegate.h"
 #import "ALTabBarController.h"
 #import "ALGuideViewController.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKConnector/ShareSDKConnector.h>
-#import "WeiboSDK.h"
+//#import "UMSocial.h"
+//#import "UMSocialSinaSSOHandler.h"
+#import "SSKeychain.h"
+
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize wbtoken;
+@synthesize wbCurrentUserID;
+@synthesize wbRefreshToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:kScreenBounds];
-
+    
     [self chooseRootViewController];
 
+    
+    //第三方登录授权
+//    [self SSOAuth];
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kSinaWeiBoAppKey];
     [self.window makeKeyAndVisible];
     
-    
-    [self registShareSDK];
     return YES;
 }
 
--(void)registShareSDK{
-    /**
-     *  设置ShareSDK的appKey，如果尚未在ShareSDK官网注册过App，请移步到http://mob.com/login 登录后台进行应用注册，
-     *  在将生成的AppKey传入到此方法中。
-     *  方法中的第二个第三个参数为需要连接社交平台SDK时触发，
-     *  在此事件中写入连接代码。第四个参数则为配置本地社交平台时触发，根据返回的平台类型来配置平台信息。
-     *  如果您使用的时服务端托管平台信息时，第二、四项参数可以传入nil，第三项参数则根据服务端托管平台来决定要连接的社交SDK。
-     */
-    [ShareSDK registerApp:@"iosv1101"
-     
-          activePlatforms:@[
-                            @(SSDKPlatformTypeSinaWeibo),
-                            @(SSDKPlatformTypeMail),
-                            @(SSDKPlatformTypeSMS),
-                            @(SSDKPlatformTypeCopy),
-                            @(SSDKPlatformTypeWechat),
-                            @(SSDKPlatformTypeQQ),
-                            @(SSDKPlatformTypeRenren),
-                            @(SSDKPlatformTypeGooglePlus)]
-                 onImport:^(SSDKPlatformType platformType)
-     {
-         switch (platformType)
-         {
-//             case SSDKPlatformTypeWechat:
-//                 [ShareSDKConnector connectWeChat:[WXApi class]];
-//                 break;
-//             case SSDKPlatformTypeQQ:
-//                 [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
-//                 break;
-             case SSDKPlatformTypeSinaWeibo:
-                 [ShareSDKConnector connectWeibo:[WeiboSDK class]];
-                 break;
-//             case SSDKPlatformTypeRenren:
-//                 [ShareSDKConnector connectRenren:[RennClient class]];
-//                 break;
-//             case SSDKPlatformTypeGooglePlus:
-//                 [ShareSDKConnector connectGooglePlus:[GPPSignIn class]
-//                                           shareClass:[GPPShare class]];
-//                 break;
-             default:
-                 break;
-         }
-     }
-          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
-     {
-         
-         switch (platformType)
-         {
-             case SSDKPlatformTypeSinaWeibo:
-                 //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
-                 [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
-                                           appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
-                                         redirectUri:@"http://www.sharesdk.cn"
-                                            authType:SSDKAuthTypeBoth];
-                 break;
-//             case SSDKPlatformTypeWechat:
-//                 [appInfo SSDKSetupWeChatByAppId:@"wx4868b35061f87885"
-//                                       appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
-//                 break;
-//             case SSDKPlatformTypeQQ:
-//                 [appInfo SSDKSetupQQByAppId:@"100371282"
-//                                      appKey:@"aed9b0303e3ed1e27bae87c33761161d"
-//                                    authType:SSDKAuthTypeBoth];
-//                 break;
-//             case SSDKPlatformTypeRenren:
-//                 [appInfo        SSDKSetupRenRenByAppId:@"226427"
-//                                                 appKey:@"fc5b8aed373c4c27a05b712acba0f8c3"
-//                                              secretKey:@"f29df781abdd4f49beca5a2194676ca4"
-//                                               authType:SSDKAuthTypeBoth];
-//                 break;
-//             case SSDKPlatformTypeGooglePlus:
-//                 [appInfo SSDKSetupGooglePlusByClientID:@"232554794995.apps.googleusercontent.com"
-//                                           clientSecret:@"PEdFgtrMw97aCvf0joQj7EMk"
-//                                            redirectUri:@"http://localhost"
-//                                               authType:SSDKAuthTypeBoth];
-//                 break;
-             default:
-                 break;
-         }
-     }];
-}
 -(void)chooseRootViewController{
     
     BOOL isFirstTime = [[NSUserDefaults standardUserDefaults] boolForKey:kFirstLogin];
@@ -133,6 +59,93 @@
         };
         
     }
+}
+
+//umeng 未使用
+-(void)SSOAuth{
+    
+//    [UMSocialData setAppKey:@"5655dea1e0f55a9608003239"];
+//    
+//    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil ,需要 #import "UMSocialSinaHandler.h"
+//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2866356252" RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+
+}
+
+#pragma mark - Sina WeiBoSDK
+
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    WBProvideMessageForWeiboResponse *response = [WBProvideMessageForWeiboResponse responseWithMessage:[self messageShareToWeibo]];
+    [WeiboSDK sendResponse:response];
+}
+
+-(WBMessageObject *)messageShareToWeibo{
+    WBMessageObject *message = [WBMessageObject message];
+    
+    message.text = @"微博分享测试";
+    
+    return message;
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    //分享到微博
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+    {
+        NSString *title = NSLocalizedString(@"发送结果", nil);
+        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
+        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
+        if (accessToken)
+        {
+            self.wbtoken = accessToken;
+        }
+        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
+        if (userID) {
+            self.wbCurrentUserID = userID;
+        }
+        [alert show];
+    }
+    //SSO授权登录
+    else if ([response isKindOfClass:WBAuthorizeResponse.class])
+    {
+        NSString *title = NSLocalizedString(@"认证结果", nil);
+        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        
+        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
+        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
+        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
+        [alert show];
+        
+        /*保存用户信息并登录*/
+        //保存当前用户名为userID
+        [[NSUserDefaults standardUserDefaults] setValue:[(WBAuthorizeResponse *)response userID] forKey:@"username"];
+        //在钥匙串中为 userID 设置 密码为 accessToken
+        [SSKeychain setPassword:[(WBAuthorizeResponse *)response accessToken] forService:[NSBundle mainBundle].bundleIdentifier account:[(WBAuthorizeResponse *)response userID]];
+        
+        
+        
+    }
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

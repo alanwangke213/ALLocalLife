@@ -6,17 +6,19 @@
 //  Copyright © 2015年 AL. All rights reserved.
 //
 
-#import "ALHomeViewController.h"
+#import "ALNewsViewController.h"
 
-@interface ALHomeViewController ()
+@interface ALNewsViewController ()
 
 @end
 
-@implementation ALHomeViewController
+@implementation ALNewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.titleLabel.text = @"热点";
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -99,7 +99,9 @@
 }
 
 -(void)addMoreView{
-    UIView *moreView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight - kTabBarHeight - kMoreViewHeight, kScreenWidth, kMoreViewHeight)];
+    //UIView *moreView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, kScreenHeight - kTabBarHeight - kMoreViewHeight, kScreenWidth, kMoreViewHeight)];
+    
+    UIView *moreView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, CGRectGetMinY(self.tabBar.frame) - kMoreViewHeight, kScreenWidth, kMoreViewHeight)];
     self.show = NO;
     moreView.userInteractionEnabled = YES;
     self.moreView = moreView;
@@ -161,7 +163,7 @@
             }];
         }
         
-    }else if ( sender.tag > 4){
+    }else if ( sender.tag > 4 && sender.tag != 8){
         self.selectedIndex = sender.tag - 1;
     }
     
