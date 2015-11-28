@@ -9,13 +9,6 @@
 #import <JSONModel/JSONModel.h>
 #import <UIKit/UIKit.h>
 
-@interface goods_listItem :JSONModel
-
-@end
-
-@protocol goods_listItem <NSObject>
-@end
-
 @interface ALProductModel : JSONModel
 
 @property (nonatomic ,assign) NSInteger id;
@@ -29,5 +22,5 @@
 @property (nonatomic ,copy) NSString *phone;
 @property (nonatomic ,assign) CGFloat lon;
 @property (nonatomic ,assign) CGFloat lat;
-@property (nonatomic ,strong) NSArray<goods_listItem> *goods_list;
+@property (nonatomic ,strong) NSArray *goods_list;
 @end

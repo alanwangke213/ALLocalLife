@@ -13,7 +13,7 @@
 #import "ALObjFactory.h"
 
 @interface ALProductDetailTableView ()<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic ,strong) NSMutableArray *productModelArray;
 @end
 
 @implementation ALProductDetailTableView
@@ -22,17 +22,25 @@
     if (self = [super initWithFrame:frame style:style]) {
         self.dataSource = self;
         self.delegate = self;
-        
         [self getProductDetaiModel];
     }
     return self;
 }
 
+-(NSMutableArray *)productModelArray{
+    if (!_productModelArray) {
+        _productModelArray  = [NSMutableArray array];
+    }
+    return _productModelArray;
+}
+
 -(void)getProductDetaiModel{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"good_info" ofType:@"plist"];
-    self.productModel = [JSONModel arrayOfModelsFromData:[NSData dataWithContentsOfFile:filePath] error:nil][0];
     
-    NSLog(@"%@",self.productModel);
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    
+    self.productModel = [[ALProductModel alloc] initWithDictionary:dict error:nil];
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -54,15 +62,19 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     if (indexPath.section == 0) {
         ALProductInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ALProductInfoCell"];
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"ALProductInfoCell" owner:nil options:nil][0];
         }
-        cell.userInteractionEnabled = NO;
+        cell.ProductModel = self.productModel;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setNeedsLayout];
+
         return cell;
     }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xxx"];
     if (cell == nil) {
         
@@ -72,7 +84,18 @@
 }
 
 #pragma mark - UITableViewDelegate
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0) {
+//        return 130;
+//    }else if (indexPath.section == 1){
+//        return 56;
+//    }else if (indexPath.section == 2){
+//        return 178 * 0.6;
+//    }
+//    return 0;
+//}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 130;
     }else if (indexPath.section == 1){

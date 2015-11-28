@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ALProductModel.h"
 
 @interface ALProductInfoCell : UITableViewCell
 
+
+@property (strong, nonatomic) ALProductModel *ProductModel;
 @end
