@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ALHomeModel.h"
 
+typedef void(^scrollBlockType)(CGPoint point);
+
 @protocol HomeTableViewDelegate <NSObject>
 
 @optional
--(void)didClickCellWithIndexpath:(NSIndexPath *)indexpath subIndex:(NSInteger *)index;
-
+-(void)didClickCellWithIndexpath:(NSIndexPath *)indexpath subIndex:(NSInteger *)tag;
 @end
 
+
+
 @interface ALHomeTableView : UITableView
+
+@property (nonatomic ,copy) scrollBlockType scrollBlock;
 
 @property (nonatomic ,strong) ALHomeModel *homeModel;
 

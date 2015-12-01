@@ -10,4 +10,5 @@
 
 @interface ALSelfCenterViewController : ALBasicViewController
 
+
 @end

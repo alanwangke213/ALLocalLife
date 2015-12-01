@@ -27,6 +27,12 @@
 		8C8537411C05CA1D0051782B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8537401C05CA1D0051782B /* ImageIO.framework */; };
 		8C8537431C05CA230051782B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8537421C05CA230051782B /* AdSupport.framework */; };
 		8C8537451C05CA2C0051782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8537441C05CA2C0051782B /* libsqlite3.tbd */; };
+		8C8A43EC1C098ACB007C4B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C8A43EB1C098ACB007C4B89 /* LaunchScreen.storyboard */; };
+		8C8A43F01C09A5D8007C4B89 /* ALMerchantInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A43EE1C09A5D8007C4B89 /* ALMerchantInfoCell.m */; };
+		8C8A43F11C09A5D8007C4B89 /* ALMerchantInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8A43EF1C09A5D8007C4B89 /* ALMerchantInfoCell.xib */; };
+		8C8A43F91C09BD93007C4B89 /* ALShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A43F81C09BD93007C4B89 /* ALShopDetailViewController.m */; };
+		8C8A44021C09D0E4007C4B89 /* ALShopDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A44011C09D0E4007C4B89 /* ALShopDetailHeader.m */; };
+		8C8A44041C09D138007C4B89 /* ALShopDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8A44031C09D138007C4B89 /* ALShopDetailHeader.xib */; };
 		8C96A14C1C0875AE00EC2509 /* ALProductDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A14B1C0875AE00EC2509 /* ALProductDetailTableView.m */; };
 		8C96A14E1C0877E800EC2509 /* good_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C96A14D1C0877E800EC2509 /* good_info.plist */; };
 		8C96A1511C08780D00EC2509 /* ALProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A1501C08780D00EC2509 /* ALProductModel.m */; };
@@ -68,6 +74,15 @@
 		8CD2F0C11C08199E00066B0A /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CD2F0741C08199E00066B0A /* WeiboSDK.bundle */; };
 		8CD2F0C21C08199E00066B0A /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2F07B1C08199E00066B0A /* NSArray+Log.m */; };
 		8CD2F0C31C08199E00066B0A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2F0801C08199E00066B0A /* SSKeychain.m */; };
+		8CED15711C0C12B000185A0F /* shop_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CED15701C0C12B000185A0F /* shop_info.plist */; };
+		8CED15741C0C12D400185A0F /* ALShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CED15731C0C12D400185A0F /* ALShopModel.m */; };
+		8CED157A1C0C1B3E00185A0F /* ALShopSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CED15791C0C1B3E00185A0F /* ALShopSectionHeader.m */; };
+		8CED157C1C0C1CC700185A0F /* ALShopIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CED157B1C0C1CC700185A0F /* ALShopIntroCell.xib */; };
+		8CED157F1C0C1D5F00185A0F /* ALShopIntroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CED157E1C0C1D5F00185A0F /* ALShopIntroCell.m */; };
+		8CED15831C0C22BE00185A0F /* ALGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CED15811C0C22BE00185A0F /* ALGoodsCell.m */; };
+		8CED15841C0C22BE00185A0F /* ALGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CED15821C0C22BE00185A0F /* ALGoodsCell.xib */; };
+		8CED158B1C0C22EA00185A0F /* ALCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CED15891C0C22EA00185A0F /* ALCommentCell.m */; };
+		8CED158C1C0C22EA00185A0F /* ALCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CED158A1C0C22EA00185A0F /* ALCommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +130,15 @@
 		8C8537401C05CA1D0051782B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8C8537421C05CA230051782B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8C8537441C05CA2C0051782B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8C8A43EB1C098ACB007C4B89 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C8A43ED1C09A5D8007C4B89 /* ALMerchantInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMerchantInfoCell.h; sourceTree = "<group>"; };
+		8C8A43EE1C09A5D8007C4B89 /* ALMerchantInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMerchantInfoCell.m; sourceTree = "<group>"; };
+		8C8A43EF1C09A5D8007C4B89 /* ALMerchantInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALMerchantInfoCell.xib; sourceTree = "<group>"; };
+		8C8A43F71C09BD93007C4B89 /* ALShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALShopDetailViewController.h; sourceTree = "<group>"; };
+		8C8A43F81C09BD93007C4B89 /* ALShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALShopDetailViewController.m; sourceTree = "<group>"; };
+		8C8A44001C09D0E4007C4B89 /* ALShopDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALShopDetailHeader.h; sourceTree = "<group>"; };
+		8C8A44011C09D0E4007C4B89 /* ALShopDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALShopDetailHeader.m; sourceTree = "<group>"; };
+		8C8A44031C09D138007C4B89 /* ALShopDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALShopDetailHeader.xib; sourceTree = "<group>"; };
 		8C96A14A1C0875AE00EC2509 /* ALProductDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALProductDetailTableView.h; sourceTree = "<group>"; };
 		8C96A14B1C0875AE00EC2509 /* ALProductDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALProductDetailTableView.m; sourceTree = "<group>"; };
 		8C96A14D1C0877E800EC2509 /* good_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = good_info.plist; sourceTree = "<group>"; };
@@ -198,6 +222,20 @@
 		8CD2F07B1C08199E00066B0A /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		8CD2F07F1C08199E00066B0A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		8CD2F0801C08199E00066B0A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		8CED15701C0C12B000185A0F /* shop_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shop_info.plist; sourceTree = "<group>"; };
+		8CED15721C0C12D400185A0F /* ALShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALShopModel.h; sourceTree = "<group>"; };
+		8CED15731C0C12D400185A0F /* ALShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALShopModel.m; sourceTree = "<group>"; };
+		8CED15781C0C1B3E00185A0F /* ALShopSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALShopSectionHeader.h; sourceTree = "<group>"; };
+		8CED15791C0C1B3E00185A0F /* ALShopSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALShopSectionHeader.m; sourceTree = "<group>"; };
+		8CED157B1C0C1CC700185A0F /* ALShopIntroCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALShopIntroCell.xib; sourceTree = "<group>"; };
+		8CED157D1C0C1D5F00185A0F /* ALShopIntroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALShopIntroCell.h; sourceTree = "<group>"; };
+		8CED157E1C0C1D5F00185A0F /* ALShopIntroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALShopIntroCell.m; sourceTree = "<group>"; };
+		8CED15801C0C22BE00185A0F /* ALGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALGoodsCell.h; sourceTree = "<group>"; };
+		8CED15811C0C22BE00185A0F /* ALGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALGoodsCell.m; sourceTree = "<group>"; };
+		8CED15821C0C22BE00185A0F /* ALGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALGoodsCell.xib; sourceTree = "<group>"; };
+		8CED15881C0C22EA00185A0F /* ALCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCommentCell.h; sourceTree = "<group>"; };
+		8CED15891C0C22EA00185A0F /* ALCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCommentCell.m; sourceTree = "<group>"; };
+		8CED158A1C0C22EA00185A0F /* ALCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALCommentCell.xib; sourceTree = "<group>"; };
 		E58E4208C99FA71771CBBA32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,8 +359,67 @@
 				8C1F74031C008A5C00F2D16C /* Info.plist */,
 				8C76C00B1C036E8500CF07C8 /* home.plist */,
 				8C96A14D1C0877E800EC2509 /* good_info.plist */,
+				8CED15701C0C12B000185A0F /* shop_info.plist */,
+				8C8A43EB1C098ACB007C4B89 /* LaunchScreen.storyboard */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		8C8A43F21C09BD56007C4B89 /* ShopDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8C8A43F31C09BD56007C4B89 /* Controller */,
+				8C8A43F41C09BD56007C4B89 /* Model */,
+				8C8A43F51C09BD56007C4B89 /* Others */,
+				8C8A43F61C09BD56007C4B89 /* View */,
+			);
+			path = ShopDetail;
+			sourceTree = "<group>";
+		};
+		8C8A43F31C09BD56007C4B89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C8A43F71C09BD93007C4B89 /* ALShopDetailViewController.h */,
+				8C8A43F81C09BD93007C4B89 /* ALShopDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C8A43F41C09BD56007C4B89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CED15721C0C12D400185A0F /* ALShopModel.h */,
+				8CED15731C0C12D400185A0F /* ALShopModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C8A43F51C09BD56007C4B89 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		8C8A43F61C09BD56007C4B89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C8A44001C09D0E4007C4B89 /* ALShopDetailHeader.h */,
+				8C8A44011C09D0E4007C4B89 /* ALShopDetailHeader.m */,
+				8C8A44031C09D138007C4B89 /* ALShopDetailHeader.xib */,
+				8CED157D1C0C1D5F00185A0F /* ALShopIntroCell.h */,
+				8CED157E1C0C1D5F00185A0F /* ALShopIntroCell.m */,
+				8CED157B1C0C1CC700185A0F /* ALShopIntroCell.xib */,
+				8CED15781C0C1B3E00185A0F /* ALShopSectionHeader.h */,
+				8CED15791C0C1B3E00185A0F /* ALShopSectionHeader.m */,
+				8CED15801C0C22BE00185A0F /* ALGoodsCell.h */,
+				8CED15811C0C22BE00185A0F /* ALGoodsCell.m */,
+				8CED15821C0C22BE00185A0F /* ALGoodsCell.xib */,
+				8CED15881C0C22EA00185A0F /* ALCommentCell.h */,
+				8CED15891C0C22EA00185A0F /* ALCommentCell.m */,
+				8CED158A1C0C22EA00185A0F /* ALCommentCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8CB447F31C08021300998B7F /* UI */ = {
@@ -341,6 +438,7 @@
 				8CB448261C08021300998B7F /* Login */,
 				8CD2AE051C082CAE000658C9 /* SelfCenter */,
 				8CD2AE181C086DD7000658C9 /* ProductDetail */,
+				8C8A43F21C09BD56007C4B89 /* ShopDetail */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -845,6 +943,9 @@
 				8C23D6FD1C087EC8009DD281 /* ALProductInfoCell.h */,
 				8C23D6FE1C087EC8009DD281 /* ALProductInfoCell.m */,
 				8C23D7001C087EEB009DD281 /* ALProductInfoCell.xib */,
+				8C8A43ED1C09A5D8007C4B89 /* ALMerchantInfoCell.h */,
+				8C8A43EE1C09A5D8007C4B89 /* ALMerchantInfoCell.m */,
+				8C8A43EF1C09A5D8007C4B89 /* ALMerchantInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -852,24 +953,24 @@
 		8CD2AE201C086EB9000658C9 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				8CB448121C08021300998B7F /* ALFamousViewCell.h */,
-				8CB448131C08021300998B7F /* ALFamousViewCell.m */,
-				8CB448141C08021300998B7F /* ALFamousViewItem.h */,
-				8CB448151C08021300998B7F /* ALFamousViewItem.m */,
-				8CB448161C08021300998B7F /* ALFamousViewItem.xib */,
 				8CB448171C08021300998B7F /* ALFocusView.h */,
 				8CB448181C08021300998B7F /* ALFocusView.m */,
 				8CB448191C08021300998B7F /* ALFocusView.xib */,
+				8CB448221C08021300998B7F /* ALHeaderView.h */,
+				8CB448231C08021300998B7F /* ALHeaderView.m */,
 				8CB4481A1C08021300998B7F /* ALGroupViewCell.h */,
 				8CB4481B1C08021300998B7F /* ALGroupViewCell.m */,
 				8CB4481C1C08021300998B7F /* ALGroupViewItem.h */,
 				8CB4481D1C08021300998B7F /* ALGroupViewItem.m */,
 				8CB4481E1C08021300998B7F /* ALGroupViewItem.xib */,
+				8CB448121C08021300998B7F /* ALFamousViewCell.h */,
+				8CB448131C08021300998B7F /* ALFamousViewCell.m */,
+				8CB448141C08021300998B7F /* ALFamousViewItem.h */,
+				8CB448151C08021300998B7F /* ALFamousViewItem.m */,
+				8CB448161C08021300998B7F /* ALFamousViewItem.xib */,
 				8CB4481F1C08021300998B7F /* ALGuessViewCell.h */,
 				8CB448201C08021300998B7F /* ALGuessViewCell.m */,
 				8CB448211C08021300998B7F /* ALGuessViewCell.xib */,
-				8CB448221C08021300998B7F /* ALHeaderView.h */,
-				8CB448231C08021300998B7F /* ALHeaderView.m */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -1048,15 +1149,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CED157C1C0C1CC700185A0F /* ALShopIntroCell.xib in Resources */,
 				8C76C00C1C036E8500CF07C8 /* home.plist in Resources */,
 				8CB448711C08179900998B7F /* Main.storyboard in Resources */,
 				8CB448571C08021300998B7F /* ALFamousViewItem.xib in Resources */,
+				8C8A44041C09D138007C4B89 /* ALShopDetailHeader.xib in Resources */,
+				8CED15711C0C12B000185A0F /* shop_info.plist in Resources */,
 				8CB4485E1C08021300998B7F /* ALGuessViewCell.xib in Resources */,
 				8C23D7011C087EEB009DD281 /* ALProductInfoCell.xib in Resources */,
 				8CD2F0C11C08199E00066B0A /* WeiboSDK.bundle in Resources */,
+				8CED15841C0C22BE00185A0F /* ALGoodsCell.xib in Resources */,
 				8C96A14E1C0877E800EC2509 /* good_info.plist in Resources */,
 				8CB4485C1C08021300998B7F /* ALGroupViewItem.xib in Resources */,
 				8C1F73FF1C008A5C00F2D16C /* Assets.xcassets in Resources */,
+				8CED158C1C0C22EA00185A0F /* ALCommentCell.xib in Resources */,
+				8C8A43EC1C098ACB007C4B89 /* LaunchScreen.storyboard in Resources */,
+				8C8A43F11C09A5D8007C4B89 /* ALMerchantInfoCell.xib in Resources */,
 				8CB448591C08021300998B7F /* ALFocusView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1130,26 +1238,34 @@
 				8CD2F0B01C08199E00066B0A /* NSString+Path.m in Sources */,
 				8CB448661C08021300998B7F /* ALUsViewController.m in Sources */,
 				8C96A1511C08780D00EC2509 /* ALProductModel.m in Sources */,
+				8C8A43F01C09A5D8007C4B89 /* ALMerchantInfoCell.m in Sources */,
 				8CB4485D1C08021300998B7F /* ALGuessViewCell.m in Sources */,
 				8C1F73F71C008A5C00F2D16C /* AppDelegate.m in Sources */,
+				8CED158B1C0C22EA00185A0F /* ALCommentCell.m in Sources */,
 				8CD2F0C31C08199E00066B0A /* SSKeychain.m in Sources */,
+				8CED157F1C0C1D5F00185A0F /* ALShopIntroCell.m in Sources */,
 				8C96A14C1C0875AE00EC2509 /* ALProductDetailTableView.m in Sources */,
+				8C8A43F91C09BD93007C4B89 /* ALShopDetailViewController.m in Sources */,
 				8CB448541C08021300998B7F /* ALHomeModel.m in Sources */,
 				8CB448621C08021300998B7F /* ALNewsViewController.m in Sources */,
 				8CD2AE1F1C086DF4000658C9 /* ALProductDetailViewController.m in Sources */,
+				8CED15741C0C12D400185A0F /* ALShopModel.m in Sources */,
 				8CB448631C08021300998B7F /* ALOnLiveViewController.m in Sources */,
 				8CD2AE0C1C082CF1000658C9 /* ALSelfCenterViewController.m in Sources */,
+				8CED15831C0C22BE00185A0F /* ALGoodsCell.m in Sources */,
 				8CB448611C08021300998B7F /* ALLoginViewController.m in Sources */,
 				8C2B948A1C06F507005748E6 /* ALSSOManager.m in Sources */,
 				8C1F73F41C008A5C00F2D16C /* main.m in Sources */,
 				8CD2F0B11C08199E00066B0A /* UIImageView+WebCache.m in Sources */,
 				8CB448581C08021300998B7F /* ALFocusView.m in Sources */,
+				8C8A44021C09D0E4007C4B89 /* ALShopDetailHeader.m in Sources */,
 				8C1F74561C00994700F2D16C /* ALTabBarController.m in Sources */,
 				8CB4485B1C08021300998B7F /* ALGroupViewItem.m in Sources */,
 				8CD2AE141C085302000658C9 /* ALNavigationController.m in Sources */,
 				8C23D6FF1C087EC8009DD281 /* ALProductInfoCell.m in Sources */,
 				8CB448561C08021300998B7F /* ALFamousViewItem.m in Sources */,
 				8CB448511C08021300998B7F /* ALCircleViewController.m in Sources */,
+				8CED157A1C0C1B3E00185A0F /* ALShopSectionHeader.m in Sources */,
 				8CB448601C08021300998B7F /* ALHomeTableView.m in Sources */,
 				8CD2F0C21C08199E00066B0A /* NSArray+Log.m in Sources */,
 				8CB4485F1C08021300998B7F /* ALHeaderView.m in Sources */,
@@ -1221,7 +1337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1258,7 +1374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

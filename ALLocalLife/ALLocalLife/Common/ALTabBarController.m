@@ -26,6 +26,7 @@
 @property (nonatomic ,weak) UIButton *currBtn;
 @property (nonatomic ,weak) UIView *moreView;
 @property (nonatomic ,assign ,getter=isShow) BOOL show;
+@property (nonatomic ,weak) UIView *tabView;
 @end
 
 @implementation ALTabBarController
@@ -41,7 +42,7 @@
 -(void)addTabView{
     UIView *tabView = [[UIView alloc] initWithFrame:self.tabBar.frame];
     tabView.backgroundColor = [UIColor redColor];
-    
+    self.tabView = tabView;
     for (int i = 0; i < kTabBarBtnCount; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         CGFloat btnW = kTabBarButtnWidth;
@@ -69,7 +70,7 @@
     
     [self.view addSubview: tabView];
     self.tabBar.hidden = YES;
-    
+
 }
 
 -(void)addChildViewControllers{
@@ -139,7 +140,6 @@
     moreView.backgroundColor = [UIColor colorWithPatternImage:image];
     
     UIGraphicsEndImageContext();
-    NSLog(@"%ld",self.moreView.subviews.count);
 }
 
 -(void)changeVc:(UIButton *)sender{
@@ -183,21 +183,18 @@
     return btn;
 }
 
+-(void)hideBottomBar:(BOOL)tag{
+    [UIView animateWithDuration:0.25 animations:^{
+
+        self.tabView.transform = CGAffineTransformTranslate(self.tabView.transform, 0, self.tabView.frame.size.height * (tag ? 1:-1));
+        
+    }];
+}
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

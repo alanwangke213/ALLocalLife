@@ -42,6 +42,7 @@
 
 -(void)weiboSSOLogout{
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
 }
 

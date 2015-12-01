@@ -10,5 +10,4 @@
 
 @interface ALHomeViewController : ALBasicViewController
 
-
 @end

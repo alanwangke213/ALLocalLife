@@ -58,5 +58,6 @@
     NSString *userID = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     //删除用户名对应的密码
     [SSKeychain deletePasswordForService:[NSBundle mainBundle].bundleIdentifier account:userID];
+
 }
 @end

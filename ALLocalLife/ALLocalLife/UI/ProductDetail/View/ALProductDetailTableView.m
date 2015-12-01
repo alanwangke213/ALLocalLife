@@ -11,6 +11,7 @@
 #import "ALProductModel.h"
 #import "ALProductInfoCell.h"
 #import "ALObjFactory.h"
+#import "ALMerchantInfoCell.h"
 
 @interface ALProductDetailTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) NSMutableArray *productModelArray;
@@ -68,10 +69,18 @@
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"ALProductInfoCell" owner:nil options:nil][0];
         }
-        cell.ProductModel = self.productModel;
+        cell.productModel = self.productModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setNeedsLayout];
 
+        return cell;
+    }else if (indexPath.section == 1){
+        ALMerchantInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ALMerchantInfoCell"];
+        if (cell == nil){
+            cell = [[NSBundle mainBundle] loadNibNamed:@"ALMerchantInfoCell" owner:nil options:nil][0];
+        }
+        cell.productModel = self.productModel;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -80,6 +89,7 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xxx"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -9,6 +9,8 @@
 #import "ALGroupViewCell.h"
 #import "ALGroupViewItem.h"
 #import "AlanDownLoadIMGManager.h"
+#import "ALShopDetailViewController.h"
+#import "ALHomeTableView.h"
 
 @interface ALGroupViewCell ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic ,weak) UICollectionView *collectionView;
@@ -42,7 +44,7 @@
 
 -(void)setHomeModel:(ALHomeModel *)homeModel{
     _homeModel = homeModel;
-//    [self.collectionView reloadData];
+
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -74,15 +76,13 @@
     return cell;
 }
 
-
 #pragma mark - UICollectionViewDelegate
 
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    self.backgroundColor = [UIColor greenColor];
-    // Configure the view for the selected state
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"collectionView Index : %ld",indexPath.row);
+    if (self.selectItemBlock != nil) {
+        self.selectItemBlock(indexPath.row);
+    }
 }
 
 @end

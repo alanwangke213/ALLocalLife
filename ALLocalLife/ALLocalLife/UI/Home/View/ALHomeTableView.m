@@ -39,7 +39,6 @@
 }
 
 -(void)loadSubViews{
-    
     //tableHeaderView
     ALFocusView *focusView = [[NSBundle mainBundle] loadNibNamed:@"ALFocusView" owner:nil options:nil].lastObject;
 
@@ -47,6 +46,8 @@
     
     self.focusView = focusView;
     self.tableHeaderView = focusView;
+    [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+//    self.contentOffset 
 }
 
 #pragma mark - UITableViewDataSource
@@ -76,6 +77,13 @@
             cell.backgroundColor = [UIColor colorWithRed:238/255. green:238/255. blue:238/255. alpha:1];
             cell.homeModel = self.homeModel;
             self.groupCell = cell;
+            
+            cell.selectItemBlock = ^(NSInteger tag){
+                if ([self.cellDelegate respondsToSelector:@selector(didClickCellWithIndexpath:subIndex:)]) {
+                    [self.cellDelegate didClickCellWithIndexpath:indexPath subIndex:&tag];
+                }
+            };
+            
         }
         return cell;
         
@@ -107,6 +115,7 @@
             cell.starView.image = [UIImage imageNamed:[NSString stringWithFormat:@"star_%ld",[self.homeModel.guess.list[indexPath.row] score]]];
             
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }
@@ -122,7 +131,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"1");
+    //点击cell执行代理方法
     if ([self.cellDelegate respondsToSelector:@selector(didClickCellWithIndexpath:subIndex:)]) {
         [self.cellDelegate didClickCellWithIndexpath:indexPath subIndex:nil];
     }
@@ -173,6 +182,16 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 12 * 0.5;
+}
+
+#pragma mark - KVO
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    
+    CGPoint point = [change[@"new"] CGPointValue];
+    if (self.scrollBlock != nil && point.y > 0 && point.y < kScreenHeight * 0.35) {
+//        NSLog(@"%@",NSStringFromCGPoint(point));
+        self.scrollBlock(point);
+    }
 }
 
 @end

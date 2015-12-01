@@ -84,6 +84,7 @@
     [keepPasswordBtn setTitle:@"记住密码" forState:UIControlStateSelected];
     [keepPasswordBtn setTitleColor:[UIColor colorWithRed:109/255. green:198/255. blue:212/255. alpha:1] forState:UIControlStateNormal];
     [keepPasswordBtn setTitleColor:[UIColor colorWithRed:109/255. green:198/255. blue:212/255. alpha:1] forState:UIControlStateSelected];
+    
     keepPasswordBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [keepPasswordBtn addTarget:self action:@selector(keepPassword:) forControlEvents:UIControlEventTouchUpInside];
     keepPasswordBtn.adjustsImageWhenHighlighted = NO;
@@ -146,7 +147,7 @@
         }
         
         if (i == 1) {
-            NSLog(@"微信登录");
+//            [btn addTarget:self action:@selector(xxx) forControlEvents:UIControlEventTouchUpInside];
         }
 
         if (i == 2) {
@@ -160,24 +161,6 @@
         
         [self.view addSubview:btn];
     }
-}
-
-#pragma mark - UmengSDK 暂未使用
--(void)umengLogin{
-    /*---umeng 未使用---*/
-        //    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-        //
-        //    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-        //
-        //        //          获取微博用户名、uid、token等
-        //
-        //        if (response.responseCode == UMSResponseCodeSuccess) {
-        //
-        //            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
-        //
-        //            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-        //
-        //        }});
 }
 
 #pragma mark - SinaWeiBoSDK
@@ -204,11 +187,13 @@
     
 }
 
+//分享
 -(void)sinaShare{
     //    [[ALSSOManager sharedInstance] weiboSSOLogin];
     
     AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
     
+    //获取一个*自动释放的*WBBaseRequest对象
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = kWeiBoRedirectURI;
     authRequest.scope = @"all";
@@ -221,35 +206,36 @@
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
     [WeiboSDK sendRequest:request];
-    
 }
 
+//获取message内容
 - (WBMessageObject *)messageToShare
 {
     WBMessageObject *message = [WBMessageObject message];
     
-        message.text = NSLocalizedString(@"测试通过WeiboSDK发送文字到微博!", nil);
-        WBImageObject *image = [WBImageObject object];
-//        image.imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sinaWeibo.png" ofType:nil]];
-    image.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"]];
-        message.imageObject = image;
-
-    //
-//        WBWebpageObject *webpage = [WBWebpageObject object];
-//        webpage.objectID = @"identifier1";
-//        webpage.title = NSLocalizedString(@"分享网页标题", nil);
-//        webpage.description = [NSString stringWithFormat:NSLocalizedString(@"分享网页内容简介-%.0f", nil), [[NSDate date] timeIntervalSince1970]];
-//        webpage.thumbnailData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"image_2" ofType:@"jpg"]];
-//        webpage.webpageUrl = @"http://sina.cn?a=1";
-//        message.mediaObject = webpage;
-
+    message.text = NSLocalizedString(@"测试通过WeiboSDK发送文字到微博!", nil);
+    
+    //      WBImageObject *image = [WBImageObject object];
+    //      image.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"]];
+    //      message.imageObject = image;
+    
+    WBWebpageObject *webpage = [WBWebpageObject object];
+    
+    webpage.objectID = @"identifier1";
+    webpage.title = NSLocalizedString(@"分享网页标题", nil);
+    webpage.description = [NSString stringWithFormat:NSLocalizedString(@"分享网页内容简介-%.0f", nil), [[NSDate date] timeIntervalSince1970]];
+    webpage.thumbnailData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"image_2" ofType:@"jpg"]];
+    webpage.webpageUrl = @"http://sina.cn?a=1";
+    
+    message.mediaObject = webpage;
+    
     return message;
 }
 
--(void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"request: %@",request);
-    NSLog(@"response: %@",response);
-}
+//-(void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response{
+//    NSLog(@"request: %@",request);
+//    NSLog(@"response: %@",response);
+//}
 
 
 #pragma mark - Login Btn Enable Mode

@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "WeiboSDK.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate,WeiboSDKDelegate>
+@class ALTabBarController;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     NSString* wbtoken;
     NSString* wbCurrentUserID;
 }
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic ,strong) ALTabBarController *tabVc;
 //sinaWeiboSDK
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbRefreshToken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;
+
 -(void)chooseRootViewController;
+//-(void)hideBottomView;
 @end
 

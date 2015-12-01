@@ -53,7 +53,6 @@
         AlanDownLoadIMGManager *manager = [AlanDownLoadIMGManager sharedInstance];
         [manager downloadIMGWith:URLString withFinishedBlock:^(UIImage *image) {
             imageView.image = image;
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         }];
         
         [scrollView addSubview:imageView];

@@ -10,4 +10,6 @@
 
 @interface ALTabBarController : UITabBarController
 
+-(void)hideBottomBar:(BOOL)tag;
+
 @end

@@ -14,8 +14,9 @@
 //#import "UMSocialSinaSSOHandler.h"
 #import "SSKeychain.h"
 #import "ALBasicViewController.h"
+#import "ALNavigationController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
 
@@ -42,11 +43,14 @@
 }
 
 -(void)chooseRootViewController{
-    
+
     BOOL isFirstTime = [[NSUserDefaults standardUserDefaults] boolForKey:kFirstLogin];
+    
     ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
     
-    if (isFirstTime) {
+    self.tabVc = tabBarVc;
+    
+    if (!isFirstTime) {
         self.window.rootViewController = tabBarVc;
     }else{
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -67,23 +71,24 @@
 //    [UMSocialData setAppKey:@"5655dea1e0f55a9608003239"];
 //    
 //    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil ,需要 #import "UMSocialSinaHandler.h"
+
 //    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2866356252" RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 
 }
 
-#pragma mark - Sina WeiBoSDK
-
+#pragma mark - Sina WeiboSDKDelegate
+//
+//-(WBMessageObject *)messageShareToWeibo{
+//    WBMessageObject *message = [WBMessageObject message];
+//    
+//    message.text = @"微博分享测试";
+//    
+//    return message;
+//}
+//
 -(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
-    WBProvideMessageForWeiboResponse *response = [WBProvideMessageForWeiboResponse responseWithMessage:[self messageShareToWeibo]];
-    [WeiboSDK sendResponse:response];
-}
-
--(WBMessageObject *)messageShareToWeibo{
-    WBMessageObject *message = [WBMessageObject message];
-    
-    message.text = @"微博分享测试";
-    
-    return message;
+//    WBProvideMessageForWeiboResponse *response = [WBProvideMessageForWeiboResponse responseWithMessage:[self messageShareToWeibo]];
+//    [WeiboSDK sendResponse:response];
 }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
@@ -98,6 +103,7 @@
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"确定", nil)
                                               otherButtonTitles:nil];
+
         WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
         NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
         if (accessToken)
@@ -121,7 +127,6 @@
                              NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
                              NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
         
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                         message:message
                                                        delegate:nil
@@ -132,7 +137,15 @@
         self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
         self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
         [alert show];
+        //如果登录成功，则退出登录页面，否则不退出
+
+        if ((int)response.statusCode == 0) {
+            [self loginSucceed];
+        }
         
+//        AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        ALTabBarController *tabVc = (ALTabBarController *)myDelegate.window.rootViewController;
+//        ALNavigationController *navVc = (ALNavigationController *)tabVc.navigationController;
         
         /*保存用户信息并登录*/
         //保存当前用户名为userID
@@ -145,8 +158,17 @@
         ALTabBarController *tabVc = (ALTabBarController *)self.window.rootViewController;
         UINavigationController *navVc = tabVc.viewControllers[0];
         ALBasicViewController *basicVc = navVc.viewControllers[0];
+        
+
+        
         [basicVc changeRightBtnWithLoginStatus];
     }
+}
+
+-(void)loginSucceed{
+    ALTabBarController *tabVc = (ALTabBarController *)self.window.rootViewController;
+    UINavigationController *navVc = tabVc.viewControllers[0];
+    [navVc popViewControllerAnimated:YES];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -179,5 +201,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

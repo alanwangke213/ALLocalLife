@@ -21,7 +21,7 @@
         self.titleLabel.text = @"圈子";
     
     [ALLocationManager locateSuccess:^(CLLocationCoordinate2D coordinate2D) {
-        NSLog(@"%f,%f",coordinate2D.latitude,coordinate2D.longitude);
+        NSLog(@"coordinate2D --> %f,%f",coordinate2D.latitude,coordinate2D.longitude);
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
     }];

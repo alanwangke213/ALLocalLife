@@ -7,8 +7,9 @@
 //
 
 #import "ALProductInfoCell.h"
+#import "WBHttpRequest+WeiboShare.h"
 
-@interface ALProductInfoCell ()
+@interface ALProductInfoCell ()<WBHttpRequestDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *productName;
 @property (weak, nonatomic) IBOutlet UILabel *productInfo;
 @property (weak, nonatomic) IBOutlet UILabel *productPrice;
@@ -28,16 +29,16 @@
     _buyBtn.layer.masksToBounds = YES;
 }
 
--(void)setProductModel:(ALProductModel *)ProductModel{
-    _ProductModel = ProductModel;
-    _productName.text = _ProductModel.title;
-    _productInfo.text = _ProductModel.content;
-    _productPrice.text = [NSString stringWithFormat:@"人均 $ %ld",_ProductModel.price];
+-(void)setProductModel:(ALProductModel *)productModel{
+    _productModel = productModel;
+    _productName.text = _productModel.title;
+    _productInfo.text = _productModel.content;
+    _productPrice.text = [NSString stringWithFormat:@"人均 $ %ld",_productModel.price];
     
     NSDictionary *attriDic = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
                                };
     
-    CGRect rect = [_ProductModel.content boundingRectWithSize:CGSizeMake(_productInfo.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attriDic context:nil];
+    CGRect rect = [_productModel.content boundingRectWithSize:CGSizeMake(_productInfo.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attriDic context:nil];
     CGRect oriFrame = self.frame;
     self.frame = CGRectMake(oriFrame.origin.x, oriFrame.origin.y, oriFrame.size.width, rect.size.height);
 }

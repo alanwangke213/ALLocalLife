@@ -12,6 +12,8 @@
 #import "SSKeychain.h"
 #import "ALAccountManager.h"
 #import "ALSelfCenterViewController.h"
+#import "AppDelegate.h"
+#import "ALNavigationController.h"
 
 @interface ALBasicViewController ()
 {
@@ -32,14 +34,15 @@
 -(void)addNavBar{
     //navBar
     self.navBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kStatusBarHeight + kNavBarHeight)];
-    self.navBar.backgroundColor = [UIColor colorWithRed:53/255. green:174/255. blue:243/255. alpha:0.75];
+    self.navBar.backgroundColor = [UIColor colorWithRed:53/255. green:174/255. blue:243/255. alpha:1];
     
     //leftButton
     self.leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kNavBarHeight, kNavBarHeight)];
     [self.leftButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
     [self.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.navBar addSubview:self.leftButton];
-    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:kUserLogo]);
+    
+    NSLog(@"kUserLogo : %@",[[NSUserDefaults standardUserDefaults] valueForKey:kUserLogo]);
     
     //rightButton
     [self changeRightBtnWithLoginStatus];
@@ -125,10 +128,12 @@
         ALSelfCenterViewController *selfVc = [[ALSelfCenterViewController alloc] init];
         
         [self.navigationController showViewController:selfVc sender:nil];
+//        [self.navigationController pushViewController:selfVc animated:YES];
         
     }else{
         ALLoginViewController *vc = [[ALLoginViewController alloc] init];
         [self.navigationController showViewController:vc sender:nil];
+//        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

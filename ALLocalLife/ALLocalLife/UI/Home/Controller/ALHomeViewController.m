@@ -12,6 +12,7 @@
 #import "ALHomeTableView.h"
 #import "ALProductDetailViewController.h"
 #import <objc/runtime.h>
+#import "ALShopDetailViewController.h"
 
 @interface ALHomeViewController ()<HomeTableViewDelegate>
 @property (nonatomic ,strong) ALHomeModel *homeModel;
@@ -26,12 +27,12 @@
     self.titleLabel.text = @"青岛生活圈";
     self.leftButton.hidden = YES;
     
+    //初始化home界面
     [self initialHomeView];
     
     //当tableView加载完之后再将navBar提到最前面
     [self.view bringSubviewToFront:self.navBar];
-    
-    
+    self.navBar.alpha = 0;
     [self loadData];
 }
 
@@ -39,10 +40,15 @@
     
     ALHomeTableView *tableView = [[ALHomeTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight) style:UITableViewStyleGrouped];
     tableView.cellDelegate = self;
+
+    tableView.scrollBlock = ^(CGPoint point){
+        if (point.y != 0) {
+//            NSLog(@"%@",NSStringFromCGPoint(point));
+            self.navBar.alpha = (point.y/(kScreenHeight * 0.35));
+        }
+    };
     self.tableView = tableView;
-//    Ivar ivar;
-//    object_getIvar(self.view, ivar);
-//    NSLog(@"%@",ivar);
+
     [self.view addSubview:tableView];
     
     //当控制器添加一个scrollView的时候会自动调整内边距
@@ -69,10 +75,20 @@
 }
 
 #pragma mark - HomeTableViewDelegate
--(void)didClickCellWithIndexpath:(NSIndexPath *)indexpath subIndex:(NSInteger *)index{
-    ALProductDetailViewController *productDetailVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ALProductDetailViewController"];
+-(void)didClickCellWithIndexpath:(NSIndexPath *)indexpath subIndex:(NSInteger *)tag{
     
-    [self.navigationController showViewController:productDetailVc sender:nil];
+    if (indexpath.section == 0) {//group
+        ALShopDetailViewController *shopDetailVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ALShopDetailViewController"];
+        
+        [self.navigationController showViewController:shopDetailVc sender:nil];
+    }else if(indexpath.section == 1){//famous
+        NSLog(@"？？？");
+    }else if (indexpath.section == 2) {//guess
+        ALProductDetailViewController *productDetailVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ALProductDetailViewController"];
+        
+        [self.navigationController showViewController:productDetailVc sender:nil];
+    }
+
 }
 /*
 #pragma mark - Navigation

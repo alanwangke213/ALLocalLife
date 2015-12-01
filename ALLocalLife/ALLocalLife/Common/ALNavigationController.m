@@ -7,6 +7,8 @@
 //
 
 #import "ALNavigationController.h"
+#import "AppDelegate.h"
+#import "ALTabBarController.h"
 
 @interface ALNavigationController ()
 
@@ -16,13 +18,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [myDelegate.tabVc hideBottomBar:YES];
+    [super pushViewController:viewController animated:animated];
+}
+
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated{
+    AppDelegate *myDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [myDelegate.tabVc hideBottomBar:NO];
+    return [super popViewControllerAnimated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

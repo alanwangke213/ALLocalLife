@@ -18,10 +18,11 @@
 -(void)awakeFromNib{
     [self addSubviews];
         [self.view bringSubviewToFront:self.navBar];
+    self.titleLabel.text = @"商品详情";
 }
 
 -(void)addSubviews{
-    ALProductDetailTableView *proDetailTableView = [[ALProductDetailTableView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, kScreenHeight - kStatusBarHeight - kTabBarHeight) style:UITableViewStyleGrouped];
+    ALProductDetailTableView *proDetailTableView = [[ALProductDetailTableView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, kScreenHeight - kStatusBarHeight) style:UITableViewStyleGrouped];
     
     [self.view addSubview:proDetailTableView];
 }

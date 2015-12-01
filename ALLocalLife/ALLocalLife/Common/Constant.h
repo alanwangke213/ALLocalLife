@@ -22,6 +22,8 @@
 
 #define kFirstLogin @"kFirstTimeLogin"
 
+#define kScale kScreenHeight / 480 * 0.5
+
 #define kScreenBounds [UIScreen mainScreen].bounds
 #define kScreenWidth kScreenBounds.size.width
 #define kScreenHeight kScreenBounds.size.height
