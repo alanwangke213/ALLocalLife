@@ -25,8 +25,9 @@
         _manager = [[CLLocationManager alloc] init];
         
         //ios 8之后需要授权
-        if ([_manager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [_manager requestAlwaysAuthorization];
+        if ([_manager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+//            [_manager requestAlwaysAuthorization];
+            [_manager requestWhenInUseAuthorization];
         }
         
         _manager.delegate = self;
@@ -49,11 +50,13 @@
 #pragma mark - IPA
 +(void)locateSuccess:(successBlock)successHandler
                 fail:(failBlock)failHanlder{
+    
     [[self sharedInstance] locateSuccess:successHandler fail:failHanlder];
 }
 
 -(void)locateSuccess:(successBlock)successHandler
                 fail:(failBlock)failHanlder{
+    [_manager requestWhenInUseAuthorization];
     [_manager startUpdatingLocation];
     self.successLocate = successHandler;
     self.failLocate = failHanlder;
